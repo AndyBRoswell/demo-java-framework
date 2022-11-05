@@ -20,7 +20,7 @@ Spring 还提供了用于注入 bean 的注解：
 - @Qualifier 与 @Autowired 连用。其参数是需要赋予 @Autowired 标记的成员变量的实例的类型名。
   - 一个情形：@Autowired 标记的成员变量的类型是一个接口，它具有多个实现。使用 @Qualifier 指定其中一个实现，否则报错（不知道需要哪一个实现类）。
 
-@Resource 并不是 Spring 的注解，而是 Java EE / Jakarta EE 的注解。
+@Resource 并不是 Spring 的注解，而是 Java EE / Jakarta EE 的注解。被 @Resource 标记的成员变量，默认被赋予与 @Resource 的参数相符的 bean 名称（id 属性）
 
 ## 例
 
