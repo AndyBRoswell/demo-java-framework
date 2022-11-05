@@ -12,7 +12,7 @@
 
 Maven 是 Apache 软件基金会（Apache Software Foundation）的一个软件项目管理工具。
 
-Maven 使用一个叫做项目对象模型（project object model，POM）的概念，令开发人员仅使用少量代码就能完成依赖管理、设定编译选项等工作。众多知名的 Java 软件项目使用 Maven 管理依赖，从而无需通过繁琐的手工操作（如：复制所需的 jar 文件到项目目录下，等等）以使软件能够正常使用第三方库。
+Maven 使用一个叫做项目对象模型（project object model，POM）的概念，令开发人员仅使用少量代码就能完成依赖（所需的来自其它软件的代码）管理、设定编译选项等工作。众多知名的 Java 软件项目使用 Maven 管理依赖，从而无需通过繁琐的手工操作（如：复制所需的 jar 文件到项目目录下，等等）以使软件能够正常使用第三方库。
 
 Maven 可以单独安装使用，也可以直接使用 IntelliJ IDEA 等工具集成的版本。
 
@@ -44,6 +44,18 @@ edu.cmu.cs.bovik.cheese;    // cs.cmu.edu
 org.apache.maven;           // apache.org
 org.apache.commons;
 ```
+
+## project.version
+
+项目的版本号。如：1.0-SNAPSHOT、1.0.0。
+
+## project.name
+
+项目的名称。
+
+## packaging
+
+项目的打包格式：jar 或 war。
 
 ## 属性（如：project.properties）
 
@@ -96,6 +108,23 @@ ${project.build.sourceEncoding}
 ### maven.compiler.target
 
 编译的目标平台的最低 Java 版本（JRE / JVM 版本）。如：17 表示编译得到的 Java 字节码需要在 Java 17 下运行。
+
+使用更高的 Java 版本有利于提升性能。
+
+## project.dependencies
+
+项目所需的依赖。每一个 dependency 元素描述一项依赖的信息。如：包名、版本号，等等。例：
+
+```xml
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>5.3.23</version>
+		</dependency>
+```
+表示需要 5.3.23 版本的 org.springframework。
+
+在 IntelliJ IDEA 中，每次改动 pom.xml 后，pom.xml 的编辑区域都会浮现一个右下角带有🔄标志的斜体 “m”。点击此按钮，将更改进行应用。应用更改的过程会进行诸如下载缺少的依赖等操作。
 
 # 第一章 Spring
 
