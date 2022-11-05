@@ -10,7 +10,7 @@
 
 application_context.xml 是 Spring 的配置文件。其根节点为 beans。它包含若干个 bean 子节点。bean 节点的 class 属性指定的类名可被 Spring IoC（控制反转）容器管理。
 
-在 org.springframework.context.support.ClassPathXmlApplicationContext 类的构造函数中，指定包含 bean 的 XML 文档。通过类的 getBean 方法，以 id 作为参数，将返回指定的类的一个实例。
+在 org.springframework.context.support.ClassPathXmlApplicationContext 类的构造函数中，指定包含 bean 的 XML 文档。通过类的 getBean 方法，以 id 作为参数，将返回指定的类的一个实例。如有多个位置需要获得该类的实例，则每一处都可以使用同一份 XML 文档。
 
 在某些场景中，这样的做法利于降低调用者与被调用者之间的耦合程度——在这里，调用者需要获取被调用者的实例：
 
