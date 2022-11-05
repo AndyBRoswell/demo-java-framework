@@ -45,17 +45,57 @@ org.apache.maven;           // apache.org
 org.apache.commons;
 ```
 
-## project.properties
+## 属性（如：project.properties）
 
-项目的属性。
+项目或其它元素 / 节点的属性。
+
+### 环境变量
+
+在 pom.xml 中，可以读取环境变量。如：
+
+```xml
+${env.PATH}
+```
+
+注意：在 Windows 下，环境变量不区分大小写。但 pom.xml 查找属性时区分大小写。
+
+### Java 系统属性
+
+所有通过
+
+```java
+java.lang.System.getProperties()
+```
+
+获得的属性，均可在 pom.xml 中使用。如：
+
+```xml
+${java.home}
+```
+
+### 自定义变量
+
+可以在 properties 元素中添加自定义变量。
+
+### 访问本项目的 pom.xml 中的元素 / 节点
+
+如：
+
+```xml
+${project.build.sourceEncoding}
+```
+
+### project.build.sourceEncoding
+
+源码的字符编码（字符集）。强烈建议使用 UTF-8。
 
 ### maven.compiler.source
 
-源文件正常编译所需的最低 Java 版本。如：1.8 或 8 表示源码需要 JDK 8 及更高版本进行编译。
+源文件正常编译所需的最低 Java 版本（JDK 版本）。如：1.8 或 8 表示源码需要 JDK 8 及更高版本进行编译。
 
 ### maven.compiler.target
 
-编译的目标平台的最低 Java 版本。如：17 表示源码需要在 Java 17 下运行。
+编译的目标平台的最低 Java 版本（JRE / JVM 版本）。如：17 表示编译得到的 Java 字节码需要在 Java 17 下运行。
 
 # 第一章 Spring
 
