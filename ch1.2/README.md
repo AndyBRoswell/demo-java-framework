@@ -17,8 +17,8 @@ Spring 为软件架构中的这些常见的层提供了有关依赖注入的、�
 
 Spring 还提供了用于注入 bean 的注解：
 - @Autowired 可以标注成员变量与成员方法（含构造方法）。对于一个类，不再需要在 XML 中为该类对应的 bean 节点添加对应于被标记的成员变量的 property 子节点；也不再需要为此成员变量编写 getter 和 setter。默认情况下，被 @Autowired 标记的成员变量，被赋予一个与其类型匹配的实例。
-- @Qualifier 与 @Autowired 连用。其参数是需要赋予 @Autowired 标记的成员变量的实例的类型名。
-  - 一个情形：@Autowired 标记的成员变量的类型是一个接口，它具有多个实现。使用 @Qualifier 指定其中一个实现，否则报错（不知道需要哪一个实现类）。
+- @Qualifier 与 @Autowired 连用。其参数是需要赋予 @Autowired 标记的成员变量的实例的名称。
+  - 一个情形：@Autowired 标记的成员变量的类型是一个接口，它具有多个实现。使用 @Qualifier 指定其中一个实现的类名，否则报错（不知道需要哪一个实现类）。
 
 @Resource 并不是 Spring 的注解，而是 Java EE / Jakarta EE 的注解。被 @Resource 标记的成员变量，默认被赋予一个 id（名称）与 @Resource 的参数相符的 bean。若找不到，则尝试赋予一个类型与 @Resource 的参数相符的 bean。
 
