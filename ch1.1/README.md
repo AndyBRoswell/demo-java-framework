@@ -2,7 +2,7 @@
 
 ## 注意事项
 
-如 Spring 版本低于 6（不含），则 Tomcat 的最高版本为 9。并且，不要使用 Jakarta EE 9（jakarta.*）及之后的版本；最高版本为 Java EE 8（javax.*）。
+如 Spring 版本低于 6（不含），则 Tomcat 的最高版本为 9。并且，不要使用 Jakarta EE 9（jakarta.\*）及之后的版本；最高版本为 Java EE 8（javax.\*）。
 
 ## 概述
 
