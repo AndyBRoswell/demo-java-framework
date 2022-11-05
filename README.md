@@ -39,6 +39,7 @@ pom.xml 的唯一一个根元素。
 import top.abr.fwsample.*;
 import top.abr.fwsample.ch1_1;
 ```
+
 groupId 的命名往往与作者的官方网站有关。如：
 
 ```java
@@ -79,11 +80,9 @@ ${env.PATH}
 #### Java 系统属性
 
 所有通过
-
 ```java
 java.lang.System.getProperties()
 ```
-
 获得的属性，均可在 pom.xml 中使用。如：
 
 ```xml
@@ -135,3 +134,6 @@ ${project.build.sourceEncoding}
 
 # 第一章 Spring
 
+## 注意事项
+
+如 Spring 版本低于 6（不含），则 Tomcat 的最高版本为 9。并且，不要使用 Jakarta EE 9（jakarta.\*）及之后的版本；最高版本为 Java EE 8（javax.\*）。
