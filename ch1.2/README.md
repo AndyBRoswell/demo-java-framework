@@ -22,6 +22,15 @@ Spring 还提供了用于注入 bean 的注解：
 
 @Resource 并不是 Spring 的注解，而是 Java EE / Jakarta EE 的注解。被 @Resource 标记的成员变量，默认被赋予一个 id（名称）与 @Resource 的参数相符的 bean。若找不到，则尝试赋予一个类型与 @Resource 的参数相符的 bean。
 
+使用 @Autowired 与 @Resource 时，Spring XML 配置中需要
+```xml
+<context:component-scan base-package=""/>
+```
+一行。base-package 指定扫描是否存在使用这些注解的类的范围。注意为 beans 根元素声明命名空间属性
+```xml
+xmlns:context="http://www.springframework.org/schema/context"
+```
+
 ## 例
 
 在本例中，test_controller 类、test_service 接口及其实现、test_DAO 接口及其实现，分别对应控制、服务和数据访问层。每个 test_controller 实例都有一个 test_service 实例；每个 test_service 实例都有一个 test_DAO 实例。
