@@ -17,7 +17,9 @@ Spring 为软件架构中的这些常见的层提供了有关依赖注入的、�
 
 Spring 还提供了用于注入 bean 的注解：
 - @Autowired 可以标注成员变量与成员方法（含构造方法），常用于消除 getter / setter 和 XML 中的 bean 的元素的 property 子元素（bean 指定的类如果包含成员变量，则需要添加相应的 property 子节点）。
-- @Resource 
+- @Qualifier
+
+@Resource 并不是 Spring 的注解，而是 Java EE / Jakarta EE 的注解。
 
 ## 例
 
