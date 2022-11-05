@@ -20,7 +20,7 @@ Spring 还提供了用于注入 bean 的注解：
 - @Qualifier 与 @Autowired 连用。其参数是需要赋予 @Autowired 标记的成员变量的实例的名称。
   - 一个情形：@Autowired 标记的成员变量的类型是一个接口，它具有多个实现。使用 @Qualifier 指定其中一个实现的类名，否则报错（不知道需要哪一个实现类）。
 
-@Resource 并不是 Spring 的注解，而是 Java EE / Jakarta EE 的注解。被 @Resource 标记的成员变量，默认被赋予一个 id（名称）与 @Resource 的参数相符的 bean。若找不到，则尝试赋予一个类型与 @Resource 的参数相符的 bean。
+@Resource 并不是 Spring 的注解，而是 Java EE / Jakarta EE 的注解。被 @Resource 标记的成员变量，默认被赋予一个 id（名称）与 @Resource 的参数相符的 bean。若找不到，则尝试赋予一个类型与 @Resource 的参数相符的 bean。也可显式给出 @Resource 的参数名 name 或 type，要求按照名称或类型进行匹配（找不到则报错）。
 
 使用 @Autowired 与 @Resource 时，Spring XML 配置中需要
 ```xml
@@ -36,8 +36,8 @@ xmlns:context="http://www.springframework.org/schema/context"
 在本例中，test_controller 类、test_service 接口及其实现、test_DAO 接口及其实现，分别对应控制、服务和数据访问层。每个 test_controller 实例都有一个 test_service 实例；每个 test_service 实例都有一个 test_DAO 实例。
 
 本例使用了如下用于声明 bean 的注解：
-- test_DAO 的一个实现类 test_DAO_impl 被注解 @Repository("test_DAO_impl") 标注。
-- test_service 的一个实现类 test_service_impl 被 @Service("test_service_impl") 标注。
+- test_DAO 的一个实现类 test_DAO_impl 被注解 @Repository("test_DAO_impl") 标注。test_DAO_impl 将作为对应的 bean 的 id 属性。
+- test_service 的一个实现类 test_service_impl 被 @Service("test_service_impl") 标注。test_service_impl 将作为对应的 bean 的 id 属性。
 - test_controller 被 @Controller 标注。
 
 本例使用了如下用于注入 bean 的注解：
