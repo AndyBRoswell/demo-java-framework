@@ -131,5 +131,7 @@ ${project.build.sourceEncoding}
 
 在 IntelliJ IDEA 中，每次改动 pom.xml 后，pom.xml 的编辑区域都会浮现一个右下角带有🔄标志的斜体 “m”。点击此按钮，将更改进行应用。应用更改的过程会进行诸如下载缺少的依赖等操作。
 
+在 mvnrepository.com 中，搜索所需的包，可以直接得到在 pom.xml 中为引用该包需要补充的 dependency 元素。
+
 # 第一章 Spring
 
