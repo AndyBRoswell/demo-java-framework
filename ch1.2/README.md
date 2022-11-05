@@ -16,8 +16,9 @@ Spring 为软件架构中的这些常见的层提供了有关依赖注入的、�
 注意：这些标注不是随意使用、随意互换的。错误使用这些标注，不但使代码结构不清晰、难于阅读，而且还会影响 Spring 带来的其它功能。例如：只有被 @Repository 标记的类，Spring 才能将这些类的实例抛出的、来自不同数据库或持久层框架（Hibernate、MyBatis、Spring Data 等）的异常转化（封装）为 Spring 自身的异常，进而令开发人员得以便捷地统一处理它们。
 
 Spring 还提供了用于注入 bean 的注解：
-- @Autowired 可以标注成员变量与成员方法（含构造方法），常用于消除 getter / setter 和 XML 中的 bean 的元素的 property 子元素（bean 指定的类如果包含成员变量，则需要添加相应的 property 子节点）。
-- @Qualifier
+- @Autowired 可以标注成员变量与成员方法（含构造方法）。对于一个类，不再需要在 XML 中为该类对应的 bean 节点添加对应于被标记的成员变量的 property 子节点；也不再需要为此成员变量编写 getter 和 setter。默认情况下，被 @Autowired 标记的成员变量，被赋予一个与其类型匹配的实例。
+- @Qualifier 与 @Autowired 连用。其参数是需要赋予 @Autowired 标记的成员变量的实例的类型名。
+  - 一个情形：@Autowired 标记的成员变量的类型是一个接口，它具有多个实现。使用 @Qualifier 指定其中一个实现，否则报错（不知道需要哪一个实现类）。
 
 @Resource 并不是 Spring 的注解，而是 Java EE / Jakarta EE 的注解。
 
