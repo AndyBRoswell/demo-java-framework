@@ -30,3 +30,7 @@ Spring 还提供了用于注入 bean 的注解：
 - test_DAO 的一个实现类 test_DAO_impl 被注解 @Repository("test_DAO_impl") 标注。
 - test_service 的一个实现类 test_service_impl 被 @Service("test_service_impl") 标注。
 - test_controller 被 @Controller 标注。
+
+本例使用了如下用于注入 bean 的注解：
+- test_service_impl.test_DAO 被 @Resource(name = "test_DAO_impl") 标记。由于不存在 id 为 test_DAO_impl 的 bean，故而将为 test_DAO 成员赋予一个 test_DAO_impl 类型的实例。这个 @Resource 注解相当于 @Autowired。
+- test_controller 的 test_service 成员被 @Autowired 标记。test_service 只有一个实现类 test_service_impl。它的实例将被赋给该 test_service 成员。
