@@ -1,5 +1,10 @@
 # java-framework-sample
- A laconic tutorial of frequently-used framework.
+
+A laconic tutorial of frequently-used framework.
+
+## 参考资料
+
+1. 陈恒、李正光&emsp;SSM+Spring Boot+Vue.js 3 全栈开发从入门到实践&emsp;清华大学出版社&emsp;2022
 
 # 环境
 
