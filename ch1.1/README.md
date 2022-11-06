@@ -2,7 +2,7 @@
 
 ## 概述
 
-Spring 的 XML 配置文件的根节点为 beans。它包含若干个 bean 子节点。bean 节点的 class 属性指定的类，可被 Spring IoC（控制反转）容器管理。控制反转，意味着某个类的使用者不再控制获得所需类的实例的过程。控制反转的另一种表述是：依赖注入（DI）。
+Spring 的 XML 配置文件的根节点为 beans。它包含若干个 bean 子节点。bean 节点的 class 属性指定的类，可被 Spring IoC（控制反转）容器管理，bean 就是这些由 Spring IoC 容器实例化、组装和管理的对象。控制反转，意味着某个类的使用者不再控制获得所需类的实例的过程。控制反转的另一种表述是：依赖注入（DI）。
 
 在 org.springframework.context.support.ClassPathXmlApplicationContext 类的构造函数中，指定包含 bean 的 XML 文档。通过类的 getBean 方法，以 id 作为参数，将返回指定的类的一个实例。如有多个位置需要获得该类的实例，则每一处都可以使用同一份 XML 文档。
 
