@@ -138,6 +138,8 @@ ${project.build.sourceEncoding}
 
 如 Spring 版本低于 6（不含），则 Tomcat 的最高版本为 9。并且，不要使用 Jakarta EE 9（jakarta.\*）及之后的版本；最高版本为 Java EE 8（javax.\*）。
 
+自 Spring 6 / Spring Boot 3 开始，要求 Java 17 及 Jakarta EE 9 版本。
+
 ## 目录
 
 - 1.1 使用 XML 文件获得所需的类实例
