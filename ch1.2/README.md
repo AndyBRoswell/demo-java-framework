@@ -7,6 +7,7 @@
 为了令软件具备可扩展性与易维护性，具有一定规模的软件往往被分为若干个层次（layer）或模块（module）。
 
 Spring 为软件架构中的这些常见的层提供了有关依赖注入的、用于声明 bean（无需再在 Spring XML 中添加相应的 bean 元素）的注解：
+- @Component 可以注解任何层次的类。被标注的类仅仅作为可被 Spring 管理的 bean。
 - @Controller 标注控制（器）层。
 - @Service 标注服务层。
 - @Repository 标注数据访问层（持久层）。
