@@ -26,7 +26,7 @@ Spring 还提供了用于注入 bean 的注解：
 ```xml
 <context:component-scan base-package=""/>
 ```
-一行。base-package 指定扫描是否存在使用这些注解的类的范围。注意为 beans 根元素声明命名空间属性
+一行。base-package 指定扫描是否存在使用这些注解的类的范围。于是，无需再在 Spring XML 配置文件中添加相应的 bean。注意为 beans 根元素声明命名空间属性
 ```xml
 xmlns:context="http://www.springframework.org/schema/context"
 ```
