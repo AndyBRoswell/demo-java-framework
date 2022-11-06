@@ -1,4 +1,4 @@
-# 1.4 Spring 实例化管理的类的三种方法
+# 1.4 Spring 实例化管理的类的三种方法&emsp;bean 的作用域
 
 ## 概述
 
@@ -12,3 +12,10 @@
 - constructor_instance 代表 bean_class 实例；
 - static_factory_instance 代表 bean_class 的静态工厂；
 - instance_factory_instance 代表 bean_class 的实例工厂。使用实例工厂创建所需的类的实例时，先创建一个该工厂的实例 my_factory，再调用该实例的工厂方法（create_instance）。
+
+## 概述
+
+
+
+## 例
+
