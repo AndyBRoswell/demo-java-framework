@@ -6,7 +6,7 @@
 
 为了令软件具备可扩展性与易维护性，具有一定规模的软件往往被分为若干个层次（layer）或模块（module）。
 
-Spring 为软件架构中的这些常见的层提供了有关依赖注入的、用于声明 bean 的注解：
+Spring 为软件架构中的这些常见的层提供了有关依赖注入的、用于声明 bean（无需再在 Spring XML 中添加相应的 bean 元素）的注解：
 - @Controller 标注控制（器）层。
 - @Service 标注服务层。
 - @Repository 标注数据访问层（持久层）。
@@ -26,7 +26,7 @@ Spring 还提供了用于注入 bean 的注解：
 ```xml
 <context:component-scan base-package=""/>
 ```
-一行。base-package 指定扫描是否存在使用这些注解的类的范围。于是，无需再在 Spring XML 配置文件中添加相应的 bean。注意为 beans 根元素声明命名空间属性
+一行。base-package 指定扫描是否存在使用这些注解的类的范围。注意为 beans 根元素声明命名空间属性
 ```xml
 xmlns:context="http://www.springframework.org/schema/context"
 ```
