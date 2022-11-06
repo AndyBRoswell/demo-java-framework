@@ -26,3 +26,4 @@
 
 ## 例
 
+本例包含接口 test_DAO 及其实现 test_DAO_impl。后者为 @Repository 修饰。

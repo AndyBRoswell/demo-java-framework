@@ -12,6 +12,8 @@ Spring 为软件架构中的这些常见的层提供了有关依赖注入的、�
 - @Service 标注服务层。
 - @Repository 标注数据访问层（持久层）。
 
+这些注解的参数为对应的 bean 元素的 id（名称）。如省略该参数，则相应的 bean 不再能够通过 id 属性访问。
+
 不难看出，控制（器）层、服务层和数据访问层（持久层），是依次从上层（应用层）到底层（核心层）的几个层次。这几个层常见于众多知名的大型软件。
 
 注意：这些标注不是随意使用、随意互换的。错误使用这些标注，不但使代码结构不清晰、难于阅读，而且还会影响 Spring 带来的其它功能。例如：只有被 @Repository 标记的类，Spring 才能将这些类的实例抛出的、来自不同数据库或持久层框架（Hibernate、MyBatis、Spring Data 等）的异常转化（封装）为 Spring 自身的异常，进而令开发人员得以便捷地统一处理它们。
@@ -21,7 +23,7 @@ Spring 还提供了用于注入 bean 的注解：
 - @Qualifier 与 @Autowired 连用。其参数是需要赋予 @Autowired 标记的成员变量的实例的名称。
   - 一个情形：@Autowired 标记的成员变量的类型是一个接口，它具有多个实现。使用 @Qualifier 指定其中一个实现的类名，否则报错（不知道需要哪一个实现类）。
 
-@Resource 并不是 Spring 的注解，而是 Java EE / Jakarta EE 的注解。被 @Resource 标记的成员变量，默认被赋予一个 id（名称）与 @Resource 的参数相符的 bean。若找不到，则尝试赋予一个类型与 @Resource 的参数相符的 bean。也可显式给出 @Resource 的参数名 name 或 type，要求按照名称或类型进行匹配（找不到则报错）。
+@Resource 并不是 Spring 的注解，而是 Java EE / Jakarta EE 的注解。被 @Resource 标记的成员变量，默认被赋予一个 id 与 @Resource 的参数相符的 bean。若找不到，则尝试赋予一个类型与 @Resource 的参数相符的 bean。也可显式给出 @Resource 的参数名 name 或 type，要求按照名称或类型进行匹配（找不到则报错）。
 
 使用 @Autowired 与 @Resource 时，Spring XML 配置中需要
 ```xml
