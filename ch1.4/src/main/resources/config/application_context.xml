@@ -3,9 +3,11 @@
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<!--构造方法实例化Bean-->
-	
-	<!--静态工厂方法实例化Bean, create工nstance为静态工厂类BeanStaticFactory
-	中的静态方法-->
+	<bean id="constructor_instance" class="instance.bean_class"/>
+	<!--静态工厂方法实例化Bean, createInstance为静态工厂类BeanStaticFactory中的静态方法-->
+	<bean id="static_factory_instance" class="instance.bean_static_factory" factory-method="get_instance"/>
 	<!--配置工厂-->
+	<bean id="my_factory" class="instance.bean_instance_factory"/>
 	<!--使用factory-bean属性指定配置工厂，使用factory-method属性指定使用工厂中哪个方法实例化Bean-->
+	<bean id="instance_factory_instance" factory-bean="my_factory" factory-method="create_instance"/>
 </beans>
