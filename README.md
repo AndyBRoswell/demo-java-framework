@@ -159,3 +159,10 @@ ${project.build.sourceEncoding}
 
 ## 概述
 
+Spring MVC 是一个主要用于开发 Web 应用的知名框架。其实现了 MVC（Model-View-Controller）这一经典的软件架构（也称架构模式，architecture pattern），有利于降低软件的各个模块间的耦合程度，进而提高软件的可扩展性与可维护性。许多软件架构，如 MVP（Android）、MVVM（WPF、MAUI）、MVT（Django）等，其设计思想在本质上都与 MVC 相似。
+
+由上层到底层，Spring MVC 的主要结构大致是：
+- DispatcherServlet
+- HandlerMapping / Controller / ViewResolver / View
+
+在 Spring MVC 中，浏览器或其它可以访问网络的软件作为客户端。与客户端直接进行通信的
