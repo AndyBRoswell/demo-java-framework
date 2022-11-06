@@ -13,4 +13,6 @@
 
 	<bean id="singleton-scope" class="instance.bean_class"/>
 	<bean id="prototype-scope" class="instance.bean_class" scope="prototype"/>
+
+	<bean id="life" class="service.MyService" init-method="init" destroy-method="destroy"/>
 </beans>
