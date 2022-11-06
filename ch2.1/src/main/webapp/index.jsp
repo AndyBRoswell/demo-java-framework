@@ -2,12 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>首页</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+    未注册的用户，请<a href="reg">注册</a><br>
+    已注册的用户，请<a href="login">登录</a>
 </body>
 </html>
