@@ -26,4 +26,17 @@
 
 ## 例
 
-本例包含接口 test_DAO 及其实现 test_DAO_impl。后者为 @Repository 修饰。
+本例包含接口 test_DAO 及其实现 test_DAO_impl。后者为 @Repository 所修饰。MyAspect 类对 test_DAO 中的三个方法 save, modify 和 delete 进行增强。
+
+运行本例可发现：执行每个增强后的方法的过程及前后，分别执行被如下注解修饰的方法：
+
+@Around（执行调用 ProceedingJoinPoint.proceed() 方法之前的语句）-> @Before -> 被增强的方法本身 -> @AfterReturning -> @After -> @Around（执行调用 ProceedingJoinPoint.proceed() 方法之后的语句）。
+
+注意 Spring XML 文档有新增的节点
+```xml
+<aop:aspectj-autoproxy/>
+```
+其中
+```xml
+xmlns:aop="http://www.springframework.org/schema/aop"
+```

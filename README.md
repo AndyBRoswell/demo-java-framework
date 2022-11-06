@@ -120,11 +120,11 @@ ${project.build.sourceEncoding}
 项目所需的依赖。每一个 dependency 元素描述一项依赖的信息。如：包名、版本号，等等。例：
 
 ```xml
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>5.3.23</version>
-		</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-beans</artifactId>
+	<version>5.3.23</version>
+</dependency>
 ```
 表示需要 5.3.23 版本的 org.springframework。
 
