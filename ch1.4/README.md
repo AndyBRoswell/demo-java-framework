@@ -15,7 +15,15 @@
 
 ## 概述
 
+Bean 的作用域有 6 种：
+- singleton。这是默认的作用域，一个 Spring 容器只有一个该实例。
+- prototype。每次获取该 bean 时，都创建一个新实例。
+- request。一次 HTTP 请求仅包含一个该实例。
+- session。一个 HTTP Session 仅包含一个该实例。
+- application。一个 ServletContext 对象仅包含一个该实例。
+- websocket。一个 WebSocket 对象仅包含一个该实例。
 
+作用域决定调用 getBean 方法时是否返回新的实例。singleton 和 prototype 是最常用的作用域，其它作用域一般仅出现在使用 Spring 的 Web 开发中。
 
 ## 例
 

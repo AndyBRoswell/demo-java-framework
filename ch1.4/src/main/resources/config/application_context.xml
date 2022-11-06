@@ -10,4 +10,7 @@
 	<bean id="my_factory" class="instance.bean_instance_factory"/>
 	<!--使用factory-bean属性指定配置工厂，使用factory-method属性指定使用工厂中哪个方法实例化Bean-->
 	<bean id="instance_factory_instance" factory-bean="my_factory" factory-method="create_instance"/>
+
+	<bean id="singleton-scope" class="instance.bean_class"/>
+	<bean id="prototype-scope" class="instance.bean_class" scope="prototype"/>
 </beans>
