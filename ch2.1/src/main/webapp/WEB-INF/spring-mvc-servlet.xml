@@ -8,7 +8,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<!--configure view resolver-->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internal_resource_view_resolver">
 		<!--prefix-->
-		<property name="prefix" value="/WEB-INF/jsp"/>
+		<property name="prefix" value="/WEB-INF/jsp/"/>
 		<!--suffix-->
 		<property name="suffix" value=".jsp"/>
 	</bean>
