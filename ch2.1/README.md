@@ -31,4 +31,4 @@ web.xml 定义了如何将 URL 映射到对应的 servlet。通常在 web.xml �
 
 在本例中，首页包含两个链接，分别导向注册和登录界面。在 web.xml 中声明了一个 DispatcherServlet 实例，其名称为 request-dispatcher，所有 URL 都会由该 DispatcherServlet 处理。对应的 request-dispatcher-servlet.xml 中，声明了一个 InternalResourceViewResolver 实例作为 bean。该实例的两个 property 子节点分别指定了：总是匹配路径名包含 /WEB-INF/jsp/ 前缀且后缀为 .jsp 的网页。
 
-本例定义了一个 index_controller 类
+本例定义了一个 index_controller 类。通过 @RequestMapping 注解，将 URL 为 /login 和 /reg 的所有请求都导向 login() 和 register() 成员方法。这两个方法分别返回字符串 login 和 register，它们代表能够被 ViewResolver 解析的视图名称。于是，在点击首页的 “注册” 和 “登录” 两个链接时，发送的 HTTP 请求中的 URL 分别为 /login 和 /reg；/WEB-INF/jsp/login.jsp 和 /WEB-INF/jsp/register.jsp 网页分别被返回给客户端。
