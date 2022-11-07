@@ -12,7 +12,7 @@ JSP 已过时，你不应深入学习。如需维护使用 JSP 的项目，则�
 
 index.jsp 是 Web 应用的首页。访问站点时，默认打开的是首页。
 
-web.xml 定义了如何将 URL 映射到对应的 servlet。
+web.xml 定义了如何将 URL 映射到对应的 servlet。通常在 web.xml 中声明 org.springframework.web.servlet.DispatcherServlet。每个 DispatcherServlet 都有一个对应的 xml 文件：默认情况下，它的 basename 是 DispatcherServlet 的名称加上 “-servlet” 后缀。DispatcherServlet 的 XML 配置文件中，可以声明 bean，其类名为 org.springframework.web.servlet.view.InternalResourceViewResolver 实例。可以为这个 bean 添加 prefix 和 suffix 两个 property 子节点，它们代表查找对应的网页文件时总是添加何种前缀或后缀。
 
 ## 例
 
