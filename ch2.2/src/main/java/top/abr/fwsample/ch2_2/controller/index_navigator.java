@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/user/")
-public class index_controller {
+public class index_navigator {
 	@GetMapping("login")
 	public String open_login_page() {
 		return "login"; // go to login.jsp
