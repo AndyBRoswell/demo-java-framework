@@ -12,5 +12,17 @@
 </head>
 <body>
 <h1>Request Parameters Demo</h1>
+<fieldset>
+    <legend>实体Bean</legend>
+</fieldset>
+<fieldset>
+    <legend>处理方法的形参</legend>
+</fieldset>
+<fieldset>
+    <legend>@RequestParam</legend>
+</fieldset>
+<fieldset>
+    <legend>@ModelAttribute</legend>
+</fieldset>
 </body>
 </html>
