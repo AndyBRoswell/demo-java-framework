@@ -36,7 +36,7 @@ public class index_controller {
 
 	@PostMapping("reg")
 	public String register(user_form_content user, Model model) {
-		if (user.getPassword().equals("998244353") && user.getPassword().equals(user.getConfirmPassword())) {
+		if (user.getPassword().equals(user.getConfirmPassword())) {
 			return "login";
 		}
 		else {
