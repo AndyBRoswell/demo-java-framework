@@ -20,8 +20,8 @@ public class user_service_impl implements user_service {
 	public user_identity.error login(user_identity user) {
 		var password = password_of_primitive_user.get(user.getName());
 		if (password == null) {return user_identity.error.nonexistent_user;}
-		if (password.equals(user.getPassword()) == false) {return user_identity.error.no_error;}
-		return user_identity.error.incorrect_password;
+		if (password.equals(user.getPassword()) == false) {return user_identity.error.incorrect_password;}
+		return user_identity.error.no_error;
 	}
 	@Override
 	public user_identity.error register(user_identity user) {
