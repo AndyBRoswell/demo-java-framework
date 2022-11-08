@@ -23,7 +23,7 @@
         </tr>
         <tr>
             <td>确认密码</td>
-            <td><input type="password" name="confirmpassword"></td>
+            <td><input type="password" name="ConfirmPassword"></td>
         </tr>
         <tr>
             <td colspan="2" align="center">
