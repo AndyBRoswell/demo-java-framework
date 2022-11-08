@@ -32,6 +32,7 @@ public class index_navigator {
 			model.addAttribute("error_message", "用户名或密码错误");
 			return "login";
 		}
+
 	}
 
 	@PostMapping("reg")

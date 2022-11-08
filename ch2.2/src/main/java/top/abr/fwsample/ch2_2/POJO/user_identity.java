@@ -1,6 +1,22 @@
 package top.abr.fwsample.ch2_2.POJO;
 
 public class user_identity {
+	public enum error {
+		// common
+		no_error,
+		empty_user_name,
+		empty_password,
+
+		// register
+		empty_confirm_password,
+		existent_user,
+		confirm_password_inconsistent,
+
+		// login
+		nonexistent_user,
+		incorrect_password,
+	}
+
 	private String Name;
 	private String Password;
 	private String ConfirmPassword;
