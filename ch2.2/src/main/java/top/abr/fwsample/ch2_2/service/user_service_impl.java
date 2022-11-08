@@ -28,7 +28,7 @@ public class user_service_impl implements user_service {
 		if (user.getName().isEmpty()) {return user_identity.error.empty_user_name;}
 		if (user.getPassword().isEmpty()) {return user_identity.error.empty_password;}
 		if (user.getConfirmPassword().isEmpty()) {return user_identity.error.empty_confirm_password;}
-		if (user.getPassword().equals(user.getConfirmPassword())) {return user_identity.error.confirm_password_inconsistent;}
+		if (user.getPassword().equals(user.getConfirmPassword()) == false) {return user_identity.error.confirm_password_inconsistent;}
 		if (password_of_primitive_user.containsKey(user.getName())) {return user_identity.error.existent_user;}
 		return user_identity.error.no_error;
 	}
