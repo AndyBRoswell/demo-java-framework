@@ -24,7 +24,7 @@ public class index_controller {
 
 	@PostMapping("login")
 	public String login(user_form_content user, HttpSession HTTP_session, Model model) {
-		if (user.get_name().equals("admin") && user.get_password().equals("998244353")) {
+		if (user.getName().equals("admin") && user.getPassword().equals("998244353")) {
 			HTTP_session.setAttribute("u", user);
 			return "main"; // go to main.jsp
 		}
@@ -36,11 +36,11 @@ public class index_controller {
 
 	@PostMapping("reg")
 	public String register(user_form_content user, Model model) {
-		if (user.get_name().equals("admin") && user.get_password().equals("998244353") && user.get_password().equals(user.get_confirm_password())) {
+		if (user.getPassword().equals("998244353") && user.getPassword().equals(user.getConfirmPassword())) {
 			return "login";
 		}
 		else {
-			model.addAttribute("error_message", "注册失败");
+			model.addAttribute("error_message", "注册失败：密码与确认密码不一致");
 			return "register";
 		}
 	}
