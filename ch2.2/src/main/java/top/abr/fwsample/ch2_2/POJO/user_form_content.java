@@ -6,6 +6,9 @@ public class user_form_content {
 	private String confirm_password;
 
 	public String get_name() {return name;}
+	public void setName(String name) {this.name = name;}
 	public String get_password() {return password;}
+	public void setPassword(String password) {this.password = password;}
 	public String get_confirm_password() {return confirm_password;}
+	public void set_confirm_password(String confirm_password) {this.confirm_password = confirm_password;}
 }

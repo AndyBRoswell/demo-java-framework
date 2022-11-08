@@ -36,11 +36,11 @@ public class index_controller {
 
 	@PostMapping("reg")
 	public String register(user_form_content user, Model model) {
-		if (user.get_name().equals("admin") && user.get_password().equals("998244353")) {
+		if (user.get_name().equals("admin") && user.get_password().equals("998244353") && user.get_password().equals(user.get_confirm_password())) {
 			return "login";
 		}
 		else {
-			model.addAttribute("user_name", user.get_name());
+			model.addAttribute("error_message", "注册失败");
 			return "register";
 		}
 	}

@@ -31,6 +31,7 @@
             </td>
         </tr>
     </table>
+    ${error_message}
 </form>
 </body>
 </html>
