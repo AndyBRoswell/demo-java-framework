@@ -1,5 +1,6 @@
 package top.abr.fwsample.ch2_2.service;
 
+import org.springframework.stereotype.Service;
 import top.abr.fwsample.ch2_2.POJO.user_identity;
 
 import java.util.HashMap;
@@ -7,6 +8,7 @@ import java.util.Map;
 
 import static java.util.Map.entry;
 
+@Service
 public class user_service_impl implements user_service {
 	private static final Map<String, String> password_of_primitive_user = Map.ofEntries(
 		entry("admin", "998244353"),
