@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import top.abr.fwsample.ch2_2.POJO.user_identity;
 
 import javax.servlet.http.HttpSession;
 
@@ -22,7 +23,7 @@ public class index_navigator {
 	}
 
 	@PostMapping("login")
-	public String login(user_form_content user, HttpSession HTTP_session, Model model) {
+	public String login(user_identity user, HttpSession HTTP_session, Model model) {
 		if (user.getName().equals("admin") && user.getPassword().equals("998244353")) {
 			HTTP_session.setAttribute("u", user);
 			return "main";
@@ -34,7 +35,7 @@ public class index_navigator {
 	}
 
 	@PostMapping("reg")
-	public String register(user_form_content user, Model model) {
+	public String register(user_identity user, Model model) {
 		if (user.getPassword().equals(user.getConfirmPassword())) {
 			return "login";
 		}
@@ -43,17 +44,4 @@ public class index_navigator {
 			return "register";
 		}
 	}
-}
-
-class user_form_content {
-	private String Name;
-	private String Password;
-	private String ConfirmPassword;
-
-	public String getName() {return Name;}
-	public void setName(String name) {this.Name = name;}
-	public String getPassword() {return Password;}
-	public void setPassword(String password) {this.Password = password;}
-	public String getConfirmPassword() {return ConfirmPassword;}
-	public void setConfirmPassword(String confirm_password) {this.ConfirmPassword = confirm_password;}
 }
