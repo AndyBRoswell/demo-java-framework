@@ -11,7 +11,7 @@
     <title>登录</title>
 </head>
 <body>
-<form action="user/login" method="post" name="reg-form">
+<form action="login" method="post" name="reg-form">
     <table>
         <tr>
             <td>用户名</td>

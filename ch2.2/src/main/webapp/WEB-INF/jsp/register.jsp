@@ -11,7 +11,7 @@
     <title>注册</title>
 </head>
 <body>
-<form action="user/reg" method="post" name="reg-form">
+<form action="reg" method="post" name="reg-form">
     <table>
         <tr>
             <td>用户名</td>
