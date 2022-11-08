@@ -10,5 +10,5 @@ public class user_form_content {
 	public String get_password() {return password;}
 	public void setPassword(String password) {this.password = password;}
 	public String get_confirm_password() {return confirm_password;}
-	public void set_confirm_password(String confirm_password) {this.confirm_password = confirm_password;}
+	public void setconfirm_password(String confirm_password) {this.confirm_password = confirm_password;}
 }
