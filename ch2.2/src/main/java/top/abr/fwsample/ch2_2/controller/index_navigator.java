@@ -51,11 +51,10 @@ public class index_navigator {
 	}
 	@PostMapping("reg")
 	public String register(user_identity user, Model model) {
-		if (user.getPassword().equals(user.getConfirmPassword())) {
-			return "login";
-		}
+		var ret = user_service.register(user);
+		if (ret == user_identity.error.no_error) {return "login";}
 		else {
-			model.addAttribute("error_message", "注册失败：密码与确认密码不一致");
+			model.addAttribute("error_message", error_hint.get(ret));
 			return "register";
 		}
 	}
