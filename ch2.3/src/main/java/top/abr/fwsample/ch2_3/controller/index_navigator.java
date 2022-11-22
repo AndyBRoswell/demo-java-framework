@@ -24,7 +24,7 @@ public class index_navigator {
 	private film_session_service film_session_service;
 
 	static {
-		final String[] Halls = { "1号厅", "2号厅", "3号厅", "4号厅", "5号厅", "6号IMAX GT厅", "7号厅", "8号IMAX GT厅", "9号厅", "10号杜比影院", "11号厅", "12号杜比影院", "13号CINITY厅", "14号CINITY厅" };
+		final String[] Halls = { "1号激光厅", "2号激光厅", "3号激光厅", "4号激光厅", "5号激光厅", "6号IMAX GT厅", "7号激光巨幕厅", "8号IMAX GT厅", "9号激光全景声厅", "10号杜比影院", "11号激光全景声厅", "12号杜比影院", "13号CINITY厅", "14号CINITY厅" };
 		for (var Hall : Halls) {halls.put(Hall, Hall);}
 
 		final String[] Levels = { "正常", "重要", "关键" };
