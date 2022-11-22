@@ -21,16 +21,16 @@
         <th>备注</th>
     </tr>
     <%--    JSTL tags--%>
-    <c:forEach items="${film_sessions}" var="session">
+    <c:forEach items="${film_sessions}" var="film_session">
         <tr>
-            <td>${session.getTitle()}</td>
+            <td>${film_session.getTitle()}</td>
             <td>
-                <c:forEach items="${session.getHall()}" var="hall">
+                <c:forEach items="${film_session.getHall()}" var="hall">
                     ${hall}&emsp;
                 </c:forEach>
             </td>
-            <td>${session.getLevel()}</td>
-            <td>${session.getNote()}</td>
+            <td>${film_session.getLevel()}</td>
+            <td>${film_session.getNote()}</td>
         </tr>
     </c:forEach>
 </table>
