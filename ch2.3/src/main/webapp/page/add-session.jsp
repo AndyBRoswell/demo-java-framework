@@ -12,7 +12,7 @@
     <title>添加场次</title>
 </head>
 <body>
-<form:form modelAttribute="film-session" method="post" action="session/add">
+<form:form modelAttribute="film-session" method="post" action="/session/add">
     <fieldset>
         <legend>添加场次</legend>
         <p><label>片名</label><form:input path="Title"/></p>

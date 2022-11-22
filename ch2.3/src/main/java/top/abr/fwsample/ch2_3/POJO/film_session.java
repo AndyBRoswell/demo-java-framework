@@ -7,10 +7,12 @@ public class film_session {
 		blank_title,
 		blank_hall,
 	}
+
 	private String Title;
 	private String[] Hall;
 	private String Level;
 	private String Note;
+
 	public String getTitle() {return Title;}
 	public void setTitle(String Title) {this.Title = Title;}
 	public String[] getHall() {return Hall;}

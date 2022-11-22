@@ -23,14 +23,14 @@
     <%--    JSTL tags--%>
     <c:forEach items="${film_sessions}" var="session">
         <tr>
-            <td>${session.Title}</td>
+            <td>${session.getTitle()}</td>
             <td>
-                <c:forEach items="${session.Hall}" var="hall">
+                <c:forEach items="${session.getHall()}" var="hall">
                     ${hall}&emsp;
                 </c:forEach>
             </td>
-            <td>${session.Level}</td>
-            <td>${session.Note}</td>
+            <td>${session.getLevel()}</td>
+            <td>${session.getNote()}</td>
         </tr>
     </c:forEach>
 </table>

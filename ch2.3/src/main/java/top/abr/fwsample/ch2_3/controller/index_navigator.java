@@ -57,6 +57,6 @@ public class index_navigator {
 	public String list_film_sessions(Model model) {
 		model.addAttribute("film_sessions", film_session_service.get_film_sessions());
 
-		return "sessions";
+		return "sessions"; // view name
 	}
 }
