@@ -19,7 +19,7 @@
         <p><label>影厅</label><form:checkboxes path="Hall" items="${halls}"/></p>
         <p><label>级别</label><form:select path="Level" items="${levels}"/></p>
         <p><label>备注</label><form:textarea path="Note" rows="10"/></p>
-        <p><input id="reset" type="reset"><input id="submit" type="submit" value="添加"></p>
+        <p><input id="reset" type="reset"><input id="submit" type="submit"></p>
     </fieldset>
 </form:form>
 </body>
