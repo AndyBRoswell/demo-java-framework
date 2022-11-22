@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 @Service
 public class film_session_service_impl implements film_session_service {
-	private static ArrayList<film_session> film_sessions = new ArrayList<>(); // this static variable simulates the database
+	private static final ArrayList<film_session> film_sessions = new ArrayList<>(); // this static variable simulates the database
 
 	@Override
-	public film_session.error add_film_session(film_session s) {
-		film_sessions.add(s);
+	public film_session.error add_film_session(film_session session) {
+		film_sessions.add(session);
 		return film_session.error.no_error;
 	}
 	@Override
