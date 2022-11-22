@@ -31,7 +31,7 @@ pom.xml 的唯一一个根元素。
 
 ### project.groupId & project.artifactId
 
-决定项目的包名（package name）。其它项目引用自己的项目时，需要正确书写包名。Java 的包名只能包含字母、数字、下划线和美元符号，且不能以数字开头、不能与 Java 关键字（保留字）重名。
+决定项目的包名（package name）。其它项目引用自己的项目时，需要正确书写包名。Java 的包名只能包含字母、数字、下划线和美元符号（$），且不能以数字开头、不能与 Java 关键字（保留字）重名。
 
 本示例项目的 groupId 是：top.abr.fwsample；1.1 节的示例代码的 artifactId 是：ch1_1。于是，引用本项目的 java 源文件需要通过类似如下的语句来导入本项目：
 
@@ -103,7 +103,7 @@ ${project.build.sourceEncoding}
 
 #### project.build.sourceEncoding
 
-源码的字符编码（字符集）。强烈建议使用 UTF-8。
+源码的字符编码（字符集）。原则上都应当使用 UTF-8。
 
 #### maven.compiler.source
 
