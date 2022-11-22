@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import top.abr.fwsample.ch2_3.service.film_session_service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 @RequestMapping("/session")
 public class index_navigator {
@@ -15,6 +18,8 @@ public class index_navigator {
 
 	@GetMapping("add")
 	public String send_add_session_page(Model model) {
-		
+		Map<String,String> halls= Map.ofEntries(
+			Map.entry("1号厅","1号厅")
+		);
 	}
 }
