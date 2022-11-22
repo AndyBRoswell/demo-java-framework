@@ -1,6 +1,6 @@
 # java-framework-sample
 
-A laconic tutorial of frequently-used framework.
+A laconic tutorial of frequently-used frameworks.
 
 ## 参考资料
 
