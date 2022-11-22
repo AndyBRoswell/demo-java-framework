@@ -12,7 +12,7 @@
     <title>场次</title>
 </head>
 <body>
-<a href="<c:url value="session/add"/>">继续添加</a>
+<a href="<c:url value="/session/add"/>">继续添加</a>
 <table>
     <tr>
         <th>片名</th>
@@ -21,7 +21,7 @@
         <th>备注</th>
     </tr>
     <%--    JSTL tags--%>
-    <c:forEach items="${sessions}" var="session">
+    <c:forEach items="${film_sessions}" var="session">
         <tr>
             <td>${session.Title}</td>
             <td>

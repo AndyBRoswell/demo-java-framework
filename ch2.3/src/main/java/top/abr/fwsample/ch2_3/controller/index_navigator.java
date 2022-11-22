@@ -62,4 +62,11 @@ public class index_navigator {
 			return "add-session"; // view name
 		}
 	}
+
+	@GetMapping("list")
+	public String list_film_sessions(Model model){
+		model.addAttribute("film_sessions", film_session_service.get_film_sessions());
+
+		return "sessions";
+	}
 }
