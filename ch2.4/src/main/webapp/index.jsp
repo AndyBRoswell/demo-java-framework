@@ -5,6 +5,9 @@
     <title>Product Specifications</title>
 </head>
 <body>
+<fieldset>
+    <legend>Add</legend>
 
+</fieldset>
 </body>
 </html>
