@@ -7,7 +7,6 @@ public class speaker {
 	public Object speaker;
 	public Object frequency_response;
 	public Object crossover_frequency;
-	public Object max_SPL;
 	public Object directivity;
 	public Object dimension;
 	public Object weight;

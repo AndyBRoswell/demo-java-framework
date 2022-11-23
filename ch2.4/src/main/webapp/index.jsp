@@ -26,15 +26,12 @@
                     <legend>Power</legend>
                     Peak<input type="number" name="peak">W
                     AES<input type="number" name="AES">W
+                    EIA-RS-426A<input type="number" name="EIA-RS-426A">W
+                    IEC-60268-5<input type="number" name="IEC-60268-5">W
                 </fieldset>
                 Sensitivity<input type="number" name="sensitivity">dB/W@1m
                 Impedance<input type="number" name="impedance">Ω
             </fieldset>
-        </fieldset>
-        <fieldset>
-            <legend>Maximum SPL</legend>
-            Peak<input type="number" name="peak">dB
-            Long Term<input type="number" name="long-term">dB
         </fieldset>
         <fieldset>
             <legend>Dimension</legend>
