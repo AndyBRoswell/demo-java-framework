@@ -39,3 +39,7 @@ src/main/webapp/WEB-INF/web.xml 中，还强制编码为 UTF-8，以免中文显
 c:forEach 标签的 items 属性指定了需要遍历的对象（该对象被绑定）。index_navigator.list_film_sessions 成员方法中，通过 org.springframework.ui.Model.addAttribute 成员函数添加该对象用于遍历。
 
 c:forEach 标签的 var 对象用于取得遍历过程中当前访问到的元素。通过该标识符，可以取得元素（被绑定的 Java 类实例）的成员。如果直接指定成员变量的名称无法取得该变量的值，也可以改为调用该变量的 getter 取得其值。
+
+小结：本例中数据绑定的实现
+- taglib 表单与处理方法中被 @ModelAttribute 注解标记的参数绑定。
+- org.springframework.ui.Model.addAttribute 添加的对象与 JSTL Core 中的 forEach 标签绑定。
