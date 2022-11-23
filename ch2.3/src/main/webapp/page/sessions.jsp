@@ -13,7 +13,7 @@
 </head>
 <body>
 <a href="<c:url value="/session/add"/>">继续添加</a>
-<table>
+<table border="1px solid">
     <tr>
         <th>片名</th>
         <th>影厅</th>
