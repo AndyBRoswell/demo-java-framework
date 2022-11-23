@@ -9,20 +9,65 @@
     <legend>Add</legend>
     <form>
         Model<input name="model">
-        <fieldset>
+        <fieldset name="type">
             <legend>Type</legend>
             <input type="checkbox" name="2-way">2-way
             <input type="checkbox" name="3-way">3-way
             <input type="checkbox" name="subwoofer">subwoofer
         </fieldset>
-        <fieldset>
+        <fieldset name="speaker">
             <legend>Speaker</legend>
-            <fieldset>
-                <legend>Sub</legend>
+            <fieldset name="subwoofer">
+                <legend>Subwoofer</legend>
                 Count<input type="number" name="count">
                 Diameter<input type="number" name="diameter">inch
                 Material<input type="text" name="material">
-                <fieldset>
+                <fieldset name="power">
+                    <legend>Power</legend>
+                    Peak<input type="number" name="peak">W
+                    AES<input type="number" name="AES">W
+                    EIA-RS-426A<input type="number" name="EIA-RS-426A">W
+                    IEC-60268-5<input type="number" name="IEC-60268-5">W
+                </fieldset>
+                Sensitivity<input type="number" name="sensitivity">dB/W@1m
+                Impedance<input type="number" name="impedance">Ω
+            </fieldset>
+            <fieldset name="bass">
+                <legend>Bass</legend>
+                Count<input type="number" name="count">
+                Diameter<input type="number" name="diameter">inch
+                Material<input type="text" name="material">
+                <fieldset name="power">
+                    <legend>Power</legend>
+                    Peak<input type="number" name="peak">W
+                    AES<input type="number" name="AES">W
+                    EIA-RS-426A<input type="number" name="EIA-RS-426A">W
+                    IEC-60268-5<input type="number" name="IEC-60268-5">W
+                </fieldset>
+                Sensitivity<input type="number" name="sensitivity">dB/W@1m
+                Impedance<input type="number" name="impedance">Ω
+            </fieldset>
+            <fieldset name="midrange">
+                <legend>Midrange</legend>
+                Count<input type="number" name="count">
+                Diameter<input type="number" name="diameter">inch
+                Material<input type="text" name="material">
+                <fieldset name="power">
+                    <legend>Power</legend>
+                    Peak<input type="number" name="peak">W
+                    AES<input type="number" name="AES">W
+                    EIA-RS-426A<input type="number" name="EIA-RS-426A">W
+                    IEC-60268-5<input type="number" name="IEC-60268-5">W
+                </fieldset>
+                Sensitivity<input type="number" name="sensitivity">dB/W@1m
+                Impedance<input type="number" name="impedance">Ω
+            </fieldset>
+            <fieldset name="treble">
+                <legend>Treble</legend>
+                Count<input type="number" name="count">
+                Diameter<input type="number" name="diameter">inch
+                Material<input type="text" name="material">
+                <fieldset name="power">
                     <legend>Power</legend>
                     Peak<input type="number" name="peak">W
                     AES<input type="number" name="AES">W
