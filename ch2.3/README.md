@@ -28,4 +28,14 @@ src/main/webapp/WEB-INF/web.xml 中，还强制编码为 UTF-8，以免中文显
 
 在该页面中，一些标签以 “form:” 前缀开头，它们将参与数据绑定。checkboxes 和 select 的内容由 items 属性决定；path 属性与需要绑定的 Java 类的成员变量名一致。
 
-在 sessions.jsp 中，
+使用 post 方法提交后，该 HTTP 请求将被分发给由 @PostMapping 标记的 index_navigator.add_film_session 成员方法。该方法的 film_session 型参数 session 被 @ModelAttribute 标记，代表参数 session 被该表单绑定，表单中的数据将传递给 session 参数的各个成员变量。
+
+在 sessions.jsp 中，开头的
+```jsp
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+```
+语句令该 jsp 可以使用 JSTL。
+
+c:forEach 标签的 items 属性指定了需要遍历的对象（该对象被绑定）。index_navigator.list_film_sessions 成员方法中，通过 org.springframework.ui.Model.addAttribute 成员函数添加该对象用于遍历。
+
+c:forEach 标签的 var 对象用于取得遍历过程中当前访问到的元素。通过该标识符，可以取得元素（被绑定的 Java 类实例）的成员。如果直接指定成员变量的名称无法取得该变量的值，也可以改为调用该变量的 getter 取得其值。
