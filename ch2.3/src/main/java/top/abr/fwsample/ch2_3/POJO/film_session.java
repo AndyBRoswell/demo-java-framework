@@ -9,12 +9,18 @@ public class film_session {
 	}
 
 	private String Title;
+	private byte Hour;
+	private byte Minute;
 	private String[] Hall;
 	private String Level;
 	private String Note;
 
 	public String getTitle() {return Title;}
 	public void setTitle(String Title) {this.Title = Title;}
+	public byte getHour() {return Hour;}
+	public void setHour(byte Hour) {this.Hour = Hour;}
+	public byte getMinute() {return Minute;}
+	public void setMinute(byte Minute) {this.Minute = Minute;}
 	public String[] getHall() {return Hall;}
 	public void setHall(String[] Hall) {this.Hall = Hall;}
 	public String getLevel() {return Level;}

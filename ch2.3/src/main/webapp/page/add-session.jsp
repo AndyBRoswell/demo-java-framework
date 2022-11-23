@@ -16,6 +16,7 @@
     <fieldset>
         <legend>添加场次</legend>
         <p><label>片名</label><form:input path="Title"/></p>
+        <p><label>时间</label><form:input path="Hour"/>时<form:input path="Minute"/>分</p>
         <p><label>影厅</label><form:checkboxes path="Hall" items="${halls}"/></p>
         <p><label>级别</label><form:select path="Level" items="${levels}"/></p>
         <p><label>备注</label><form:textarea path="Note" rows="10"/></p>

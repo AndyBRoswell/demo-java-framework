@@ -16,6 +16,7 @@
 <table border="1px solid">
     <tr>
         <th>片名</th>
+        <th>时间</th>
         <th>影厅</th>
         <th>级别</th>
         <th>备注</th>
@@ -24,6 +25,7 @@
     <c:forEach items="${film_sessions}" var="film_session">
         <tr>
             <td>${film_session.getTitle()}</td>
+            <td>${film_session.getHour()}时${film_session.getMinute()}分</td>
             <td>
                 <c:forEach items="${film_session.getHall()}" var="hall">
                     ${hall}&emsp;
