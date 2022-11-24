@@ -5,4 +5,19 @@ add_button.onclick = () => {
     console.log(Date.now())
     console.log(new_speaker_form)
     console.log(new_speaker_form.children)
+
+    const s = [new_speaker_form]
+    const r = {}
+    while (s.length !== 0) {
+        const t = s[s.length - 1]
+        s.pop()
+        switch (t.tag) {
+            case 'fieldset':
+                break
+            case 'input':
+                break
+            case 'label':
+                break
+        }
+    }
 }

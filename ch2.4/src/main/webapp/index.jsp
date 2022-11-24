@@ -9,7 +9,7 @@
 <fieldset>
     <legend>Add</legend>
     <form id="new-speaker">
-        Model<input type="text" name="model" value="SLR139X">
+        Model<input type="text" name="model" value="SLR190X">
         <fieldset name="type">
             <legend>Type</legend>
             <input type="checkbox" name="2-way">2-way
