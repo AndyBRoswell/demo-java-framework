@@ -26,7 +26,7 @@ add_button.onclick = () => {
                 if (no_content) continue
             }
             const driver_type = fieldset.getAttribute('name')
-            const direct_inputs = fieldset.querySelectorAll('input.parent>input')
+            const direct_inputs = fieldset.querySelectorAll(':scope>input')
             for (const input of direct_inputs) {
                 const value = input.getAttribute('value')
                 const unit_label = input.nextElementSibling
@@ -59,9 +59,13 @@ add_button.onclick = () => {
             for (const input of inputs) {
                 const value = input.getAttribute('value')
                 const unit_label = input.nextElementSibling
-                const target = speaker['frequency_response']
-                if (value !== null) target[input.getAttribute('name')] = {
-                    value: value, unit: unit_label.textContent
+                const target = speaker['frequency_response'] = {}
+                if (unit_label === null) {
+                    if (value !== null) target[input.getAttribute('name')] = value
+                } else {
+                    if (value !== null) target[input.getAttribute('name')] = {
+                        value: value, unit: unit_label.textContent
+                    }
                 }
             }
         }
