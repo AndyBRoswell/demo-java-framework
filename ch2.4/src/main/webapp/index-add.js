@@ -24,7 +24,8 @@ add_button.onclick = () => {
                             case 'input':
                             case 'fieldset':
                                 console.log("child tag name = " + tag_name)
-                                s.push(child, ',')
+                                s.push(child)
+                                // s.push(child, ',')
                                 break
                             default:
                                 break
@@ -41,6 +42,7 @@ add_button.onclick = () => {
                             } else {
                                 s.push(t.getAttribute('checked'), ':', t.getAttribute('name'))
                             }
+                            s.push(',')
                             break
                         case 'number':
                         case 'text':
@@ -53,6 +55,7 @@ add_button.onclick = () => {
                             } else {
                                 s.push(value, ':', t.getAttribute('name'))
                             }
+                            s.push(',')
                             break
                         default:
                             break
