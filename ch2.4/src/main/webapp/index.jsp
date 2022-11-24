@@ -87,7 +87,7 @@
         </fieldset>
         Weight<input type="number" name="weight" value="280">kg
         <br>
-        <input id="add_button" type="submit" value="Add">
+        <input id="add_button" type="button" value="Add">
     </form>
 </fieldset>
 <fieldset>
