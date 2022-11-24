@@ -19,8 +19,15 @@ add_button.onclick = () => {
                     const is_this_array = t.hasAttribute("title") && t.getAttribute('title').toLowerCase() === 'map-to-json-array'
                     is_this_array ? s.push(']') : s.push('}')
                     for (const child of t.children) {
-                        if (typeof t !== 'string') {
-                            s.push(child, ',')
+                        const tag_name = child.tagName.toLowerCase()
+                        switch (tag_name) {
+                            case 'input':
+                            case 'fieldset':
+                                console.log("child tag name = " + tag_name)
+                                s.push(child, ',')
+                                break
+                            default:
+                                break
                         }
                     }
                     is_this_array ? s[s.length - 1] = '[' : s[s.length - 1] = '{'
