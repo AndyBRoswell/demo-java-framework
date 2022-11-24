@@ -30,7 +30,7 @@ add_button.onclick = () => {
                     switch (input_type) {
                         case 'checkbox':
                             if (t.parentElement.getAttribute("title").toLowerCase() === 'map-to-json-array') {
-                                if (t.getAttribute('checked') == true) s.push(t.getAttribute('name'));
+                                if (t.getAttribute('checked')) s.push(t.getAttribute('name'));
                             } else {
                                 s.push(t.getAttribute('checked'), ':', t.getAttribute('name'))
                             }
@@ -42,9 +42,10 @@ add_button.onclick = () => {
                             if (input_type === 'text') value = JSON.stringify(value)
                             const next_node = t.nextElementSibling
                             if (next_node !== null && next_node.tagName.toLowerCase() === 'label') {
-                                s.push(next_node.textContent, ':', 'unit', ',')
+                                s.push('}', next_node.textContent, ':', 'unit', ',', value, ':', 'value', '{', ':', t.getAttribute('name'))
+                            } else {
+                                s.push(value, ':', t.getAttribute('name'))
                             }
-                            s.push(value, ':', t.getAttribute('name'))
                             break
                         default:
                             break
