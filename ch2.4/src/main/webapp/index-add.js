@@ -8,15 +8,19 @@ add_button.onclick = () => {
 
     const s = [new_speaker_form]
     const r = {}
+    const m = {s: r}
     while (s.length !== 0) {
         const t = s[s.length - 1]
         s.pop()
         switch (t.tag) {
             case 'fieldset':
+                
                 break
             case 'input':
                 break
             case 'label':
+                break
+            default:
                 break
         }
     }
