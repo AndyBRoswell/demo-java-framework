@@ -22,6 +22,11 @@ add_button.onclick = () => {
                         const tag_name = child.tagName.toLowerCase()
                         switch (tag_name) {
                             case 'input':
+                                if (value !== null) {
+                                    console.log(child)
+                                    s.push(child)
+                                }
+                                break
                             case 'fieldset':
                                 console.log(child)
                                 s.push(child)
@@ -49,7 +54,7 @@ add_button.onclick = () => {
                         case 'text':
                             console.log(t.getAttribute('name'))
                             let value = t.getAttribute('value')
-                            if (value === null) break
+                            // if (value === null) break
                             if (input_type === 'text') value = JSON.stringify(value)
                             const next_node = t.nextElementSibling
                             if (next_node !== null && next_node.tagName.toLowerCase() === 'label') {
