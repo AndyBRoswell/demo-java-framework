@@ -54,6 +54,6 @@ add_button.onclick = () => {
             request_body.push(t)
         }
     }
-    request_body.join('')
+    request_body = request_body.join('')
     console.log(request_body)
 }
