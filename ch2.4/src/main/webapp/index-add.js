@@ -31,7 +31,8 @@ add_button.onclick = () => {
                                 break
                         }
                     }
-                    is_this_array ? s[s.length - 1] = '[' : s[s.length - 1] = '{'
+                    // is_this_array ? s[s.length - 1] = '[' : s[s.length - 1] = '{'
+                    is_this_array ? s.push('[') : s.push('{')
                     break
                 case 'input':
                     const input_type = t.getAttribute('type').toLowerCase()
@@ -46,6 +47,7 @@ add_button.onclick = () => {
                             break
                         case 'number':
                         case 'text':
+                            console.log(t.getAttribute('name'))
                             let value = t.getAttribute('value')
                             if (value === null) break
                             if (input_type === 'text') value = JSON.stringify(value)
