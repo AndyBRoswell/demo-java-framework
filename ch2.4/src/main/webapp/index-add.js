@@ -31,7 +31,10 @@ add_button.onclick = () => {
             let target = speaker['driver'][driver_type] = {}
             for (const input of direct_inputs) {
                 const value = input.getAttribute('value')
-                const unit_label = input.querySelector(':scope + label')
+                // console.log(input.nextSibling)
+                // console.log(input.nextElementSibling)
+                // const unit_label = input.querySelector(':scope+label')
+                const unit_label = input.nextElementSibling
                 if (unit_label === null) {
                     if (value !== null) target[input.getAttribute('name')] = value
                 } else {
@@ -59,7 +62,10 @@ add_button.onclick = () => {
             const inputs = fieldset.querySelectorAll('input')
             for (const input of inputs) {
                 const value = input.getAttribute('value')
-                const unit_label = input.querySelector(':scope + label')
+                // console.log(input.nextSibling)
+                // console.log(input.nextElementSibling)
+                // const unit_label = input.querySelector(':scope+label')
+                const unit_label = input.nextElementSibling
                 const target = speaker['frequency_response'] = {}
                 if (unit_label === null) {
                     if (value !== null) target[input.getAttribute('name')] = value
