@@ -19,9 +19,9 @@
         <legend>Driver</legend>
         <fieldset name="subwoofer">
             <legend>Subwoofer</legend>
-            <label>Count</label><input type="number" name="count">&emsp;
+            <label>Count</label><input type="number" name="count"><label></label>&emsp;
             <label>Diameter</label><input type="number" name="diameter"><label>inch</label>&emsp;
-            <label>Material</label><input type="text" name="material">
+            <label>Material</label><input type="text" name="material"><label></label>
             <fieldset name="power">
                 <legend>Power</legend>
                 <label>Peak</label><input type="number" name="peak"><label>W</label>&emsp;
@@ -34,9 +34,9 @@
         </fieldset>
         <fieldset name="bass">
             <legend>Bass</legend>
-            <label>Count</label><input type="number" name="count" value="2">&emsp;
+            <label>Count</label><input type="number" name="count" value="2"><label></label>&emsp;
             <label>Diameter</label><input type="number" name="diameter" value="15"><label>inch</label>&emsp;
-            <label>Material</label><input type="text" name="material">
+            <label>Material</label><input type="text" name="material"><label></label>
             <fieldset name="power">
                 <legend>Power</legend>
                 <label>Peak</label><input type="number" name="peak"><label>W</label>&emsp;
@@ -49,9 +49,9 @@
         </fieldset>
         <fieldset name="midrange">
             <legend>Midrange</legend>
-            <label>Count</label><input type="number" name="count" value="2">&emsp;
+            <label>Count</label><input type="number" name="count" value="2"><label></label>&emsp;
             <label>Diameter</label><input type="number" name="diameter" value="8"><label>inch</label>&emsp;
-            <label>Material</label><input type="text" name="material">
+            <label>Material</label><input type="text" name="material"><label></label>
             <fieldset name="power">
                 <legend>Power</legend>
                 <label>Peak</label><input type="number" name="peak"><label>W</label>&emsp;
@@ -64,9 +64,9 @@
         </fieldset>
         <fieldset name="treble">
             <legend>Treble</legend>
-            <label>Count</label><input type="number" name="count" value="4">&emsp;
+            <label>Count</label><input type="number" name="count" value="4"><label></label>&emsp;
             <label>Diameter</label><input type="number" name="diameter" value="3"><label>inch</label>&emsp;
-            <label>Material</label><input type="text" name="material">
+            <label>Material</label><input type="text" name="material"><label></label>
             <fieldset name="power">
                 <legend>Power</legend>
                 <label>Peak</label><input type="number" name="peak"><label>W</label>&emsp;
@@ -82,7 +82,7 @@
         <legend>Frequency Response</legend>
         <input type="number" name="lbound" value="60"><label>Hz</label>
         <label>~ </label><input type="number" name="ubound" value="20"><label>kHz</label>&emsp;
-        <label>Variation</label><input type="text" name="variation" value="+/- 3 dB">
+        <label>Variation</label><input type="text" name="variation" value="+/- 3 dB"><label></label>
     </fieldset>
     <fieldset name="dimension">
         <legend>Dimension</legend>

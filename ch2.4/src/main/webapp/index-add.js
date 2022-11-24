@@ -31,15 +31,12 @@ add_button.onclick = () => {
             let target = speaker['driver'][driver_type] = {}
             for (const input of direct_inputs) {
                 const value = input.getAttribute('value')
-                // console.log(input.nextSibling)
-                // console.log(input.nextElementSibling)
-                // const unit_label = input.querySelector(':scope+label')
-                const unit_label = input.nextElementSibling
-                if (unit_label === null) {
+                const unit = input.nextSibling.textContent
+                if (!unit) {
                     if (value !== null) target[input.getAttribute('name')] = value
                 } else {
                     if (value !== null) target[input.getAttribute('name')] = {
-                        value: value, unit: unit_label.textContent
+                        value: value, unit: unit
                     }
                 }
             }
@@ -49,7 +46,7 @@ add_button.onclick = () => {
             for (const input of power_inputs) {
                 const value = input.getAttribute('value')
                 if (value !== null) target[input.getAttribute('name')] = {
-                    value: value, unit: input.nextElementSibling.textContent
+                    value: value, unit: input.nextSibling.textContent
                 }
             }
         }
@@ -62,16 +59,13 @@ add_button.onclick = () => {
             const inputs = fieldset.querySelectorAll('input')
             for (const input of inputs) {
                 const value = input.getAttribute('value')
-                // console.log(input.nextSibling)
-                // console.log(input.nextElementSibling)
-                // const unit_label = input.querySelector(':scope+label')
-                const unit_label = input.nextElementSibling
+                const unit = input.nextSibling.textContent
                 const target = speaker['frequency_response'] = {}
-                if (unit_label === null) {
+                if (!unit) {
                     if (value !== null) target[input.getAttribute('name')] = value
                 } else {
                     if (value !== null) target[input.getAttribute('name')] = {
-                        value: value, unit: unit_label.textContent
+                        value: value, unit: unit
                     }
                 }
             }
@@ -79,7 +73,7 @@ add_button.onclick = () => {
     }
     {
         const weight_input = new_speaker_fieldset.querySelector('input[name="weight"]')
-        const weight_unit = weight_input.nextElementSibling.textContent
+        const weight_unit = weight_input.nextSibling.textContent
         speaker['weight'] = {
             value: weight_input.getAttribute('value'), unit: weight_unit
         }
