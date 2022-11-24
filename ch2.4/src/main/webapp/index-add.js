@@ -21,11 +21,22 @@ add_button.onclick = () => {
                 let checkbox_only = true
                 for (const child of t.children) {
                     s.push(child);
-                    if (child.tagName.toLowerCase() === 'input' && child.getAttribute("type") !== "checkbox") {
-                        checkbox_only = false
+                    if (child.tagName.toLowerCase() === 'input') {
+                        if (child.getAttribute("type") !== "checkbox") {
+                            checkbox_only = false
+                            actions.push(child)
+                        } else {
+                            if (child.getAttribute("checked") === true) {
+                                actions.push(child.getAttribute("name"))
+                            }
+                        }
+                    } else if (child.tagName.toLowerCase() === 'label') {
+
                     }
                 }
+                if (checkbox_only === true) {
 
+                }
                 break
             case 'input':
                 break
