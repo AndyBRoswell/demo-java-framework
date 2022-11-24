@@ -46,7 +46,7 @@ add_button.onclick = () => {
             for (const input of power_inputs) {
                 const value = input.getAttribute('value')
                 if (value !== null) target[input.getAttribute('name')] = {
-                    value: value, unit: input.querySelector(':scope + label').textContent
+                    value: value, unit: input.nextElementSibling.textContent
                 }
             }
         }
