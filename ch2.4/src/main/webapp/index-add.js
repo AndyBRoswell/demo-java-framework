@@ -73,7 +73,7 @@ add_button.onclick = () => {
     }
     {
         const weight_input = new_speaker_fieldset.querySelector('input[name="weight"]')
-        const weight_unit = weight_input.querySelector(':scope + label').textContent
+        const weight_unit = weight_input.nextElementSibling.textContent
         speaker['weight'] = {
             value: weight_input.getAttribute('value'), unit: weight_unit
         }
