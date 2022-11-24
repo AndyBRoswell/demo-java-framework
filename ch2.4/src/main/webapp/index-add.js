@@ -34,13 +34,12 @@ add_button.onclick = () => {
                             break
                         case 'number':
                         case 'text':
+                            let value = t.getAttribute('value')
+                            if (value === null) break
+                            if (input_type === 'text') value = JSON.stringify(value)
                             const next_node = t.nextElementSibling
                             if (next_node !== null && next_node.tagName.toLowerCase() === 'label') {
                                 s.push(next_node.textContent, ':', 'unit', ',')
-                            }
-                            let value = t.getAttribute('value')
-                            if (input_type === 'text') {
-                                value = JSON.stringify(value)
                             }
                             s.push(value, ':', t.getAttribute('name'))
                             break
