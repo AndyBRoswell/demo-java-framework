@@ -28,14 +28,14 @@ add_button.onclick = () => {
             }
             const driver_type = fieldset.getAttribute('name')
             const direct_inputs = fieldset.querySelectorAll(':scope>input')
-            let target = speaker['driver']
+            let target = speaker['driver'][driver_type] = {}
             for (const input of direct_inputs) {
                 const value = input.getAttribute('value')
                 const unit_label = input.nextElementSibling
                 if (unit_label === null) {
-                    if (value !== null) target[driver_type][input.getAttribute('name')] = value
+                    if (value !== null) target[input.getAttribute('name')] = value
                 } else {
-                    if (value !== null) target[driver_type][input.getAttribute('name')] = {
+                    if (value !== null) target[input.getAttribute('name')] = {
                         value: value, unit: unit_label.textContent
                     }
                 }
