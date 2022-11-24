@@ -14,7 +14,7 @@ add_button.onclick = () => {
         if (typeof t !== 'string') {
             switch (t.tagName.toLowerCase()) {
                 case 'fieldset':
-                    const this_is_array = t.getAttribute('title').toLowerCase() === 'map-to-json-array'
+                    const this_is_array = t.hasAttribute("title") && t.getAttribute('title').toLowerCase() === 'map-to-json-array'
                     this_is_array ? s.push(']') : s.push('}')
                     for (const child of t.children) {
                         s.push(child, ',')
@@ -22,20 +22,27 @@ add_button.onclick = () => {
                     this_is_array ? s[s.length - 1] = '{' : s[s.length - 1] = '{'
                     break
                 case 'input':
-                    if (t.getAttribute('type').toLowerCase() === 'checkbox') {
-                        if (t.parentElement.getAttribute("title").toLowerCase() === 'map-to-json-array') {
-                            s.push(t.getAttribute('name'));
-                        } else {
-                            s.push(t.getAttribute('checked'), ':', t.getAttribute('name'))
-                        }
-                    } else {
-                        {
+                    const input_type = t.getAttribute('type').toLowerCase()
+                    switch (input_type) {
+                        case 'checkbox':
+                            if (t.parentElement.getAttribute("title").toLowerCase() === 'map-to-json-array') {
+                                s.push(t.getAttribute('name'));
+                            } else {
+                                s.push(t.getAttribute('checked'), ':', t.getAttribute('name'))
+                            }
+                            break
+                        case 'number':
+                        case 'text':
                             const next_node = t.nextElementSibling
-                            if (next_node.tagName.toLowerCase() === 'label') {
+                            if (next_node !== null && next_node.tagName.toLowerCase() === 'label') {
                                 s.push(next_node.textContent, ':', 'unit', ',')
                             }
-                        }
-                        s.push(t.getAttribute('value'), ':', t.getAttribute('name'))
+                            let value = t.getAttribute('value')
+                            if (input_type === 'text') {
+                                value = JSON.stringify(value)
+                            }
+                            s.push(value, ':', t.getAttribute('name'))
+                            break
                     }
                     break
                 default:
