@@ -83,7 +83,7 @@
             <legend>Frequency Response</legend>
             <input type="number" name="lbound"><label>Hz</label>
             ~ <input type="number" name="ubound"><label>kHz</label>&emsp;
-            <input type="text" name="variation" value="±3 dB">
+            <input type="text" name="variation" value="+/- 3 dB">
         </fieldset>
         <fieldset name="dimension">
             <legend>Dimension</legend>
