@@ -2,77 +2,75 @@ const add_button = document.getElementById("add_button")
 add_button.onclick = () => {
     const speaker = {}
     const new_speaker_fieldset = document.getElementById("new-speaker")
-    console.log(Date.now())
-
-    const s = [ new_speaker_fieldset ]
-    let request_body = []
-    while (s.length !== 0) {
-        const t = s[s.length - 1]
-        s.pop()
-        // console.log(t)
-        if (typeof t !== 'string') {
-            const tag_name = t.tagName.toLowerCase()
-            switch (tag_name) {
-                case 'fieldset':
-                    const is_this_array = t.hasAttribute("title") && t.getAttribute('title').toLowerCase() === 'map-to-json-array'
-                    is_this_array ? s.push(']') : s.push('}')
-                    for (const child of t.children) {
-                        const tag_name = child.tagName.toLowerCase()
-                        switch (tag_name) {
-                            case 'input':
-                                if (value !== null) {
-                                    console.log(child)
-                                    s.push(child)
-                                }
-                                break
-                            case 'fieldset':
-                                console.log(child)
-                                s.push(child)
-                                // s.push(child, ',')
-                                break
-                            default:
-                                break
-                        }
-                    }
-                    // is_this_array ? s[s.length - 1] = '[' : s[s.length - 1] = '{'
-                    is_this_array ? s.push('[') : s.push('{')
-                    break
-                case 'input':
-                    const input_type = t.getAttribute('type').toLowerCase()
-                    switch (input_type) {
-                        case 'checkbox':
-                            if (t.parentElement.getAttribute("title").toLowerCase() === 'map-to-json-array') {
-                                if (t.hasAttribute('checked')) s.push(t.getAttribute('name'));
-                            } else {
-                                s.push(t.getAttribute('checked'), ':', t.getAttribute('name'))
-                            }
-                            s.push(',')
-                            break
-                        case 'number':
-                        case 'text':
-                            console.log(t.getAttribute('name'))
-                            let value = t.getAttribute('value')
-                            // if (value === null) break
-                            if (input_type === 'text') value = JSON.stringify(value)
-                            const next_node = t.nextElementSibling
-                            if (next_node !== null && next_node.tagName.toLowerCase() === 'label') {
-                                s.push('}', next_node.textContent, ':', 'unit', ',', value, ':', 'value', '{', ':', t.getAttribute('name'))
-                            } else {
-                                s.push(value, ':', t.getAttribute('name'))
-                            }
-                            s.push(',')
-                            break
-                        default:
-                            break
-                    }
-                    break
-                default:
-                    break
-            }
-        } else {
-            request_body.push(t)
+    speaker['model'] = new_speaker_fieldset.querySelector('input[name="model"]').getAttribute('value')
+    {
+        speaker['type'] = []
+        const type_fieldset = new_speaker_fieldset.querySelector('fieldset[name="type"]')
+        const checked_checkboxes = type_fieldset.querySelectorAll('input[checked]');
+        for (const checkbox of checked_checkboxes) {
+            speaker['type'].push(checkbox.getAttribute('name'))
         }
     }
-    request_body = request_body.join('')
-    console.log(request_body)
+    {
+        const driver_fieldsets = new_speaker_fieldset.querySelectorAll('fieldset[name="driver"]>fieldset')
+        for (const fieldset of driver_fieldsets) {
+            const direct_inputs = fieldset.querySelectorAll('input.parent>input')
+            {
+                let no_content = true
+                for (const input of direct_inputs) {
+                    if (input.getAttribute('value') !== null) {
+                        no_content = false
+                        break
+                    }
+                }
+                if (no_content) continue
+            }
+            const driver_type = fieldset.getAttribute('name')
+            for (const input of direct_inputs) {
+                const value = input.getAttribute('value')
+                const unit_label = input.nextElementSibling
+                const target = speaker['driver']
+                if (unit_label === null) {
+                    if (value !== null) target[driver_type] = value
+                } else {
+                    if (value !== null) target[driver_type] = {
+                        value: value, unit: unit_label.textContent
+                    }
+                }
+            }
+            const power_fieldset = fieldset.querySelector('fieldset[name="power"]')
+            const power_inputs = power_fieldset.querySelectorAll('input')
+            for (const input of power_inputs) {
+                const value = input.getAttribute('value')
+                const target = speaker['driver'][driver_type]
+                if (value !== null) target[input.getAttribute('name')] = {
+                    value: value, unit: input.nextElementSibling.textContent
+                }
+            }
+        }
+    }
+    {
+        const frequency_response_fieldset = new_speaker_fieldset.querySelector('fieldset[name="frequency_response"]')
+        const dimension_fieldset = new_speaker_fieldset.querySelector('fieldset[name="dimension"]')
+        const fieldsets = [ frequency_response_fieldset, dimension_fieldset, ]
+        for (const fieldset of fieldsets) {
+            const inputs = frequency_response_fieldset.querySelectorAll('input')
+            for (const input of inputs) {
+                const value = input.getAttribute('value')
+                const unit_label = input.nextElementSibling
+                const target = speaker['frequency_response']
+                if (value !== null) target[input.getAttribute('name')] = {
+                    value: value, unit: unit_label.textContent
+                }
+            }
+        }
+    }
+    {
+        const weight_input = new_speaker_fieldset.querySelector('input[name="weight"]')
+        const weight_unit = weight_input.nextElementSibling.textContent
+        speaker['weight'] = {
+            value: weight_input.getAttribute('value'), unit: weight_unit
+        }
+    }
+    console.log(JSON.stringify(speaker))
 }
