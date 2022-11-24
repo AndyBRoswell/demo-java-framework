@@ -10,7 +10,7 @@
     <legend>Add</legend>
     <form id="new-speaker">
         Model<input type="text" name="model" value="SLR190X">
-        <fieldset name="type">
+        <fieldset name="type" title="map-to-json-array">
             <legend>Type</legend>
             <input type="checkbox" name="2-way">2-way
             <input type="checkbox" name="3-way" checked>3-way
