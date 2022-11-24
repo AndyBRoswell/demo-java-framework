@@ -3,15 +3,15 @@ add_button.onclick = () => {
     const speaker = {}
     const new_speaker_form = document.getElementById("new-speaker")
     console.log(Date.now())
-    console.log(new_speaker_form)
-    console.log(new_speaker_form.children)
+    // console.log(new_speaker_form)
+    // console.log(new_speaker_form.children)
 
     const s = [ new_speaker_form ]
     let request_body = []
     while (s.length !== 0) {
         const t = s[s.length - 1]
         s.pop()
-        console.log(t)
+        // console.log(t)
         if (typeof t !== 'string') {
             const tag_name = t.tagName.toLowerCase()
             switch (tag_name) {
@@ -23,7 +23,7 @@ add_button.onclick = () => {
                         switch (tag_name) {
                             case 'input':
                             case 'fieldset':
-                                console.log("child tag name = " + tag_name)
+                                console.log(child)
                                 s.push(child)
                                 // s.push(child, ',')
                                 break
@@ -38,7 +38,7 @@ add_button.onclick = () => {
                     switch (input_type) {
                         case 'checkbox':
                             if (t.parentElement.getAttribute("title").toLowerCase() === 'map-to-json-array') {
-                                if (t.getAttribute('checked')) s.push(t.getAttribute('name'));
+                                if (t.hasAttribute('checked')) s.push(t.getAttribute('name'));
                             } else {
                                 s.push(t.getAttribute('checked'), ':', t.getAttribute('name'))
                             }
