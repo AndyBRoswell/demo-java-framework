@@ -28,23 +28,23 @@ add_button.onclick = () => {
             }
             const driver_type = fieldset.getAttribute('name')
             const direct_inputs = fieldset.querySelectorAll(':scope>input')
+            let target = speaker['driver']
             for (const input of direct_inputs) {
                 const value = input.getAttribute('value')
                 const unit_label = input.nextElementSibling
-                const target = speaker['driver']
                 if (unit_label === null) {
-                    if (value !== null) target[driver_type] = value
+                    if (value !== null) target[driver_type][input.getAttribute('name')] = value
                 } else {
-                    if (value !== null) target[driver_type] = {
+                    if (value !== null) target[driver_type][input.getAttribute('name')] = {
                         value: value, unit: unit_label.textContent
                     }
                 }
             }
             const power_fieldset = fieldset.querySelector('fieldset[name="power"]')
             const power_inputs = power_fieldset.querySelectorAll('input')
+            target = speaker['driver'][driver_type]['power'] = {}
             for (const input of power_inputs) {
                 const value = input.getAttribute('value')
-                const target = speaker['driver'][driver_type]
                 if (value !== null) target[input.getAttribute('name')] = {
                     value: value, unit: input.nextElementSibling.textContent
                 }
