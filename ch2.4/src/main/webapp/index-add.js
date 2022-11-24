@@ -57,10 +57,10 @@ add_button.onclick = () => {
         const fieldsets = [ frequency_response_fieldset, dimension_fieldset, ]
         for (const fieldset of fieldsets) {
             const inputs = fieldset.querySelectorAll('input')
+            const target = speaker[fieldset.getAttribute('name')] = {}
             for (const input of inputs) {
                 const value = input.getAttribute('value')
                 const unit = input.nextSibling.textContent
-                const target = speaker['frequency_response'] = {}
                 if (!unit) {
                     if (value !== null) target[input.getAttribute('name')] = value
                 } else {
