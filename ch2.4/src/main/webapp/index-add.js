@@ -14,7 +14,7 @@ add_button.onclick = () => {
         s.pop()
         switch (t.tag) {
             case 'fieldset':
-                
+
                 break
             case 'input':
                 break
