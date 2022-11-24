@@ -3,12 +3,13 @@
 <html>
 <head>
     <title>Product Specifications</title>
+    <script src="index-add.js" defer></script>
 </head>
 <body>
 <fieldset>
     <legend>Add</legend>
-    <form>
-        Model<input type="text" name="model" value="SLR15-19">
+    <form id="new-speaker">
+        Model<input type="text" name="model" value="SLR139X">
         <fieldset name="type">
             <legend>Type</legend>
             <input type="checkbox" name="2-way">2-way
@@ -86,7 +87,7 @@
         </fieldset>
         Weight<input type="number" name="weight" value="280">kg
         <br>
-        <input type="submit" value="Add">
+        <input id="add_button" type="submit" value="Add">
     </form>
 </fieldset>
 <fieldset>
