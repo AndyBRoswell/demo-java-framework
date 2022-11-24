@@ -11,12 +11,12 @@
     Model<input type="text" name="model" value="SLR190X">
     <fieldset name="type" title="map-to-json-array">
         <legend>Type</legend>
-        <input type="checkbox" name="2-way">2-way
-        <input type="checkbox" name="3-way" checked>3-way
-        <input type="checkbox" name="subwoofer">subwoofer
+        <input type="checkbox" name="2-Way">2-Way
+        <input type="checkbox" name="3-Way" checked>3-Way
+        <input type="checkbox" name="Subwoofer">Subwoofer
     </fieldset>
-    <fieldset name="speaker">
-        <legend>Speaker</legend>
+    <fieldset name="driver">
+        <legend>Driver</legend>
         <fieldset name="subwoofer">
             <legend>Subwoofer</legend>
             Count<input type="number" name="count">&emsp;
