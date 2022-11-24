@@ -13,6 +13,7 @@ add_button.onclick = () => {
     }
     {
         const driver_fieldsets = new_speaker_fieldset.querySelectorAll('fieldset[name="driver"]>fieldset')
+        speaker['driver'] = {}
         for (const fieldset of driver_fieldsets) {
             {
                 let no_content = true
@@ -30,7 +31,7 @@ add_button.onclick = () => {
             for (const input of direct_inputs) {
                 const value = input.getAttribute('value')
                 const unit_label = input.nextElementSibling
-                const target = speaker['driver'] = {}
+                const target = speaker['driver']
                 if (unit_label === null) {
                     if (value !== null) target[driver_type] = value
                 } else {
@@ -43,7 +44,7 @@ add_button.onclick = () => {
             const power_inputs = power_fieldset.querySelectorAll('input')
             for (const input of power_inputs) {
                 const value = input.getAttribute('value')
-                const target = speaker['driver'][driver_type] = {}
+                const target = speaker['driver'][driver_type]
                 if (value !== null) target[input.getAttribute('name')] = {
                     value: value, unit: input.nextElementSibling.textContent
                 }
