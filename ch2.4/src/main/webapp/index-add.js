@@ -11,6 +11,7 @@ add_button.onclick = () => {
     while (s.length !== 0) {
         const t = s[s.length - 1]
         s.pop()
+        console.log(t)
         if (typeof t !== 'string') {
             switch (t.tagName.toLowerCase()) {
                 case 'fieldset':
@@ -42,6 +43,8 @@ add_button.onclick = () => {
                                 value = JSON.stringify(value)
                             }
                             s.push(value, ':', t.getAttribute('name'))
+                            break
+                        default:
                             break
                     }
                     break
