@@ -13,21 +13,24 @@ add_button.onclick = () => {
         s.pop()
         console.log(t)
         if (typeof t !== 'string') {
-            switch (t.tagName.toLowerCase()) {
+            const tag_name = t.tagName.toLowerCase()
+            switch (tag_name) {
                 case 'fieldset':
-                    const this_is_array = t.hasAttribute("title") && t.getAttribute('title').toLowerCase() === 'map-to-json-array'
-                    this_is_array ? s.push(']') : s.push('}')
+                    const is_this_array = t.hasAttribute("title") && t.getAttribute('title').toLowerCase() === 'map-to-json-array'
+                    is_this_array ? s.push(']') : s.push('}')
                     for (const child of t.children) {
-                        s.push(child, ',')
+                        if (typeof t !== 'string') {
+                            s.push(child, ',')
+                        }
                     }
-                    this_is_array ? s[s.length - 1] = '{' : s[s.length - 1] = '{'
+                    is_this_array ? s[s.length - 1] = '[' : s[s.length - 1] = '{'
                     break
                 case 'input':
                     const input_type = t.getAttribute('type').toLowerCase()
                     switch (input_type) {
                         case 'checkbox':
                             if (t.parentElement.getAttribute("title").toLowerCase() === 'map-to-json-array') {
-                                s.push(t.getAttribute('name'));
+                                if (t.getAttribute('checked') == true) s.push(t.getAttribute('name'));
                             } else {
                                 s.push(t.getAttribute('checked'), ':', t.getAttribute('name'))
                             }
