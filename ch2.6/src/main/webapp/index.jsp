@@ -24,6 +24,11 @@
             <input type="text" name="description">
             <input type="button" value="➖">
         </li>
+        <li>
+            <input type="file" name="file"><br>
+            <input type="text" name="description">
+            <input type="button" value="➖">
+        </li>
     </ol>
     <input type="submit" value="Upload">
 </form>
