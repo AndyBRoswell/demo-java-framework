@@ -96,6 +96,7 @@
 </fieldset>
 <fieldset>
     <legend>Query</legend>
+    <input type="button" value="List all speakers">
     <label for="all-speakers"></label>
     <textarea id="all-speakers"></textarea>
 </fieldset>
