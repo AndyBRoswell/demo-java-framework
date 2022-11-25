@@ -18,6 +18,7 @@ public class index_controller {
 		final File target_dir = new File(real_path);
 		if (target_dir.exists() == false) {target_dir.mkdirs();}
 		final List<MultipartFile> files = list.file;
+//		final List<MultipartFile> files = list.getFile();
 		for (MultipartFile file : files) {
 			final String file_name = file.getOriginalFilename();
 			if (file_name == null) continue;
