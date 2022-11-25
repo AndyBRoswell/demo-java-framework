@@ -31,3 +31,11 @@ for (const button of add_buttons) {
         for (let i = 0; i < n; ++i) add_file_node()
     }
 }
+
+const existent_lis = file_list.querySelectorAll('li')
+for (const li of existent_lis) {
+    const del_button = li.querySelector('input[value="➖"]')
+    del_button.onclick = (event) => {
+        del_file_node(event.target.parentNode)
+    }
+}
