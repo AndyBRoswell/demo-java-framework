@@ -7,6 +7,6 @@
 	<context:component-scan base-package="top.abr.fwsample.ch2_4.controller"/>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internal-resource-view-resolver">
 	</bean>
+	<mvc:annotation-driven/>
 	<mvc:resources mapping="/index-add.js" location="/index-add.js"/>
-
 </beans>

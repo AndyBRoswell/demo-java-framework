@@ -78,5 +78,13 @@ add_button.onclick = () => {
             value: weight_input.getAttribute('value'), unit: weight_unit
         }
     }
-    console.log(JSON.stringify(speaker))
+    const json = JSON.stringify(speaker)
+    console.log(json)
+    const HTTP_request = new XMLHttpRequest()
+    HTTP_request.open('POST', window.location.href + 'add', true)
+    HTTP_request.setRequestHeader('Content-type', 'application/json')
+    HTTP_request.send(json)
+    HTTP_request.onreadystatechange = () => {
+        if (HTTP_request.readyState === XMLHttpRequest.DONE) console.log(HTTP_request.responseText)
+    }
 }
