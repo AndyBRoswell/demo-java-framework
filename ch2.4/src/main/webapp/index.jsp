@@ -94,12 +94,14 @@
     <label>Weight</label><input type="number" name="weight" value="280"><label>kg</label>
     <br>
     <input id="add_button" type="button" value="Add">
+    <label for="return-value">Return Value</label><input id="return-value" type="text" readonly>
+    <label for="return-message">Return Message</label><input id="return-message" type="text" readonly>
 </fieldset>
 <fieldset>
     <legend>Query</legend>
-    <input id="list_button" type="button" value="List all speakers">
+    <input id="list_button" type="button" value="List all speakers"><br>
     <label for="all-speakers"></label>
-    <textarea id="all-speakers"></textarea>
+    <textarea id="all-speakers" rows="100" style="width: 100%"></textarea>
 </fieldset>
 </body>
 </html>

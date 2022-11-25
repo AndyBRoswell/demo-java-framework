@@ -4,7 +4,7 @@ public class speaker {
 	public String model;
 	public String[] type;
 	public String[] application_scenario;
-	public Object speaker;
+	public Object driver;
 	public Object frequency_response;
 	public Object crossover_frequency;
 	public Object directivity;

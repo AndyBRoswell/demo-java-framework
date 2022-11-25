@@ -1,4 +1,6 @@
 const add_button = document.getElementById("add_button")
+const return_value_textfield = document.getElementById('return-value')
+const return_message_textfield = document.getElementById('return-message')
 add_button.onclick = () => {
     const speaker = {}
     const new_speaker_fieldset = document.getElementById("new-speaker")
@@ -84,6 +86,10 @@ add_button.onclick = () => {
     HTTP_request.setRequestHeader('Content-type', 'application/json')
     HTTP_request.send(json)
     HTTP_request.onreadystatechange = () => {
-        if (HTTP_request.readyState === XMLHttpRequest.DONE) console.log(HTTP_request.responseText)
+        if (HTTP_request.readyState === XMLHttpRequest.DONE) {
+            const response = JSON.parse(HTTP_request.responseText)
+            return_value_textfield.value = response['ret']
+            return_message_textfield.value = response['msg']
+        }
     }
 }
