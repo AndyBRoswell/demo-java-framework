@@ -101,7 +101,7 @@
     <legend>Query</legend>
     <input id="list_button" type="button" value="List all speakers"><br>
     <label for="all-speakers"></label>
-    <textarea id="all-speakers" rows="100" style="width: 100%"></textarea>
+    <textarea id="all-speakers" rows="100" style="width: 100%" readonly></textarea>
 </fieldset>
 </body>
 </html>
