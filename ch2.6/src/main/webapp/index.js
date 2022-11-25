@@ -19,6 +19,7 @@ function add_file_node() {
         del_file_node(event.target.parentNode)
     }
     li.append(file_input, description_input, del_button)
+    file_list.append(li)
 }
 
 const upload_form = document.getElementById('upload-form')
