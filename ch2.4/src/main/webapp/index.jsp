@@ -4,6 +4,7 @@
 <head>
     <title>Product Specifications</title>
     <script src="index-add.js" defer></script>
+    <script src="index-list.js" defer></script>
 </head>
 <body>
 <fieldset id="new-speaker">
