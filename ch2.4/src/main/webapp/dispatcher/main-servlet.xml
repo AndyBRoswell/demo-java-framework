@@ -9,4 +9,5 @@
 	</bean>
 	<mvc:annotation-driven/>
 	<mvc:resources mapping="/index-add.js" location="/index-add.js"/>
+	<mvc:resources mapping="/index-list.js" location="/index-list.js"/>
 </beans>
