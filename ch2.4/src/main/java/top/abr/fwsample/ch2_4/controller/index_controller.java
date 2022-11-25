@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import top.abr.fwsample.ch2_4.POJO.speaker;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 
 @Controller
 public class index_controller {
@@ -24,7 +24,7 @@ public class index_controller {
 	@ResponseBody
 	public Object add_speaker(@RequestBody speaker s) {
 		speakers.add(s);
-		final LinkedHashMap<String, Object> response = new LinkedHashMap<>();
+		final HashMap<String, Object> response = new HashMap<>();
 		response.put("ret", 0);
 		response.put("msg", "Succeeded");
 		return response;
