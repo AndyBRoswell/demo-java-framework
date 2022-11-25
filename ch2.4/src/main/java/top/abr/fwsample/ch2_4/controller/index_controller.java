@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 public class index_controller {
 	private static final ArrayList<speaker> speakers = new ArrayList<>();
 
-	@GetMapping("/query")
+	@GetMapping("/list")
 	@ResponseBody
 	public Object list_speakers() {
 		return speakers;

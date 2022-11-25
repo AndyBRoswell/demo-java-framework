@@ -79,7 +79,6 @@ add_button.onclick = () => {
         }
     }
     const json = JSON.stringify(speaker)
-    console.log(json)
     const HTTP_request = new XMLHttpRequest()
     HTTP_request.open('POST', window.location.href + 'add', true)
     HTTP_request.setRequestHeader('Content-type', 'application/json')
