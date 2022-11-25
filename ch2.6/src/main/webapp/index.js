@@ -9,6 +9,7 @@ function add_file_node() {
     const file_input = document.createElement('input')
     file_input.setAttribute('type', 'file')
     file_input.setAttribute('name', 'file')
+    const br = document.createElement('br')
     const description_input = document.createElement('input')
     description_input.setAttribute('type', 'text')
     description_input.setAttribute('name', 'description')
@@ -18,7 +19,7 @@ function add_file_node() {
     del_button.onclick = (event) => {
         del_file_node(event.target.parentNode)
     }
-    li.append(file_input, description_input, del_button)
+    li.append(file_input, br, description_input, del_button)
     file_list.append(li)
 }
 
