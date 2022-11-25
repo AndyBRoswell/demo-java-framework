@@ -20,6 +20,7 @@ public class index_controller {
 		final List<MultipartFile> files = list.file;
 		for (MultipartFile file : files) {
 			final String file_name = file.getOriginalFilename();
+			if (file_name == null) continue;
 			final File target_file = new File(real_path, file_name);
 			try {file.transferTo(target_file);}
 			catch (Exception e) {e.printStackTrace();}
