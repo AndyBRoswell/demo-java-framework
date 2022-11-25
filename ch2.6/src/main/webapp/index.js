@@ -1,7 +1,7 @@
 const file_list = document.getElementById('file-list')
 
 function del_file_node(file_node) {
-
+    file_list.removeChild(file_node)
 }
 
 function add_file_node() {
@@ -19,4 +19,13 @@ function add_file_node() {
         del_file_node(event.target.parentNode)
     }
     li.append(file_input, description_input, del_button)
+}
+
+const upload_form = document.getElementById('upload-form')
+const add_buttons = upload_form.querySelectorAll(':scope>input[type="button"]')
+for (const button of add_buttons) {
+    const n = button.getAttribute('id').split('_')[1]
+    button.onclick = () => {
+        for (let i = 0; i < n; ++i) add_file_node()
+    }
 }

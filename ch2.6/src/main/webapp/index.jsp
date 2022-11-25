@@ -6,7 +6,7 @@
     <script src="index.js" defer></script>
 </head>
 <body>
-<form action="upload" method="post" enctype="multipart/form-data">
+<form id="upload-form" action="upload" method="post" enctype="multipart/form-data">
     <input type="button" id="add_1" value="Add 1">
     <input type="button" id="add_2" value="Add 2">
     <input type="button" id="add_3" value="Add 3">
