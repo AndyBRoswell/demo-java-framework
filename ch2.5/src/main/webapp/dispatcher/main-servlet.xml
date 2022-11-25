@@ -4,6 +4,22 @@
 	   xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
-
-
+	<context:component-scan base-package="top.abr.fwsample.ch2_5.controller"/>
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internal-resource-view-resolver">
+		<property name="prefix" value="/page/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	<mvc:interceptors>
+		<bean class="top.abr.fwsample.ch2_5.interceptor.global_interceptor"/>
+		<mvc:interceptor>
+<!--			拦截器作用的路径-->
+			<mvc:mapping path="/**"/>
+<!--			定义在interceptor元素中，表示匹配指定路径的请求才进行拦截-->
+			<bean class="top.abr.fwsample.ch2_5.interceptor.local_interceptor_v1"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/test"/>
+			<bean class="top.abr.fwsample.ch2_5.interceptor.local_interceptor_v2"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>

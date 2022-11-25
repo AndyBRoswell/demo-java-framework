@@ -5,6 +5,6 @@
     <title>Interceptor Demo</title>
 </head>
 <body>
-
+<a href="test">测试</a>
 </body>
 </html>
