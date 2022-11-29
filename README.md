@@ -19,9 +19,9 @@ A laconic tutorial of frequently-used frameworks.
 
 Maven 是 Apache 软件基金会（Apache Software Foundation）的一个软件项目管理工具。
 
-Maven 使用一个叫做项目对象模型（project object model，POM）的概念，令开发人员仅使用少量代码就能完成依赖（所需的来自其它软件的代码）管理、设定编译选项等工作。众多知名的 Java 软件项目使用 Maven 管理依赖，从而无需通过繁琐的手工操作（如：复制所需的 jar 文件到项目目录下，等等）以使软件能够正常使用第三方库。
+Maven 使用一个叫做项目对象模型（project object model，POM）的概念，令开发人员仅使用少量 XML 代码就能完成依赖（所需的来自其它软件的代码）管理、设定编译选项等工作。众多知名的 Java 软件项目使用 Maven 管理依赖，从而无需通过繁琐的手工操作（如：复制所需的 jar 文件到项目目录下，等等）以使软件能够正常使用第三方库。
 
-Maven 可以单独安装使用，也可以直接使用 IntelliJ IDEA 等工具集成的版本。
+Maven 可以单独安装使用，也可以直接使用 IntelliJ IDEA 等 IDE 集成的版本。
 
 使用 Maven 的项目中，项目目录下的 pom.xml 描述了项目的名称、依赖、编译选项等信息。
 
@@ -35,7 +35,7 @@ pom.xml 的唯一一个根元素。
 
 决定项目的包名（package name）。其它项目引用自己的项目时，需要正确书写包名。Java 的包名只能包含字母、数字、下划线和美元符号（$），且不能以数字开头、不能与 Java 关键字（保留字）重名。
 
-本示例项目的 groupId 是：top.abr.fwsample；1.1 节的示例代码的 artifactId 是：ch1_1。于是，引用本项目的 java 源文件需要通过类似如下的语句来导入本项目：
+本仓库的示例项目统一使用的 groupId 是：top.abr.fwsample；1.1 节的示例代码的 artifactId 是：ch1_1。于是，引用本项目的 java 源文件需要通过类似如下的语句来导入本项目：
 
 ```java
 import top.abr.fwsample.*;
@@ -63,7 +63,7 @@ org.apache.commons;
 
 ### packaging
 
-项目的打包格式：jar 或 war。
+项目的打包格式：jar 或 war。开发 Web 项目时，格式一般选用 war。
 
 ### 属性（如：project.properties）
 
@@ -113,7 +113,7 @@ ${project.build.sourceEncoding}
 
 #### maven.compiler.target
 
-编译的目标平台的最低 Java 版本（JRE / JVM 版本）。如：17 表示编译得到的 Java 字节码需要在 Java 17 下运行。
+编译的目标平台的最低 Java 版本（JVM 版本）。如：17 表示编译得到的 Java 字节码需要在 Java 17 下运行。
 
 使用更高的 Java 版本有利于提升性能。
 
@@ -138,7 +138,7 @@ ${project.build.sourceEncoding}
 
 ## 注意事项
 
-如 Spring 版本低于 6（不含），则 Tomcat 的最高版本为 9。并且，不要使用 Jakarta EE 9（jakarta.\*）及之后的版本；最高版本为 Java EE 8（javax.\*）。
+如 Spring 版本低于 6，则 Tomcat 的最高版本为 9。并且，不要使用 Jakarta EE 9（jakarta.\*）及之后的版本；最高版本为 Java EE 8（javax.\*）。
 
 自 Spring 6 / Spring Boot 3 开始，要求 Java 17 及 Jakarta EE 9 版本。
 
