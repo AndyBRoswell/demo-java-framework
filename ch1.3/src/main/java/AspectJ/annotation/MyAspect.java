@@ -10,13 +10,11 @@ import org.springframework.stereotype.Component;
 public class MyAspect {
 	/*
 	定义切入点，通知增强哪些方法。
-	"execution (* aspect j .dao .*.*(..))"是定义切入点表达式，
-	该切入点表达式的意思是匹配aspectj.dao包中任意类的任意方法的执行。
-	其中 execution ()是表达式的主体，
-	第一个*表示返回类型，使用*代表所有类型；
-	aspectj.dao 表示需要匹配的包名，后面第二个*表示类名，使用*代表匹配包中所有的类；
-	第三个夫表示方法名，使用*表示所有方法；后 面 (..)表示方法的参数，其中表示任意参数。
-	另外，注意第一个*与包名之间有一个空格。
+	"execution(*AspectJ.DAO .*.*(..))"定义了切入点表达式，意思是：匹配aspectj.dao包中任意类的任意方法的执行。
+	其中，execution ()是表达式的主体，
+	第一个*表示返回类型，使用*代表所有类型；另外，注意第一个*与包名之间有一个空格。
+	aspectj.dao表示需要匹配的包名，后面第二个*表示类名，使用*代表匹配包中所有的类；
+	第三个*表示方法名，使用*表示所有方法；后面(..)表示方法的参数，其中表示任意参数。
 	*/
 	@Pointcut("execution(* AspectJ.DAO.*.*(..))")
 	private void my_pointcut() {}
