@@ -32,7 +32,7 @@ public class index_navigator {
 
 	@GetMapping("login")
 	public String open_login_page() {
-		return "login"; // go to login.jsp
+		return "login"; // go to 'login.jsp'
 	}
 	@GetMapping("reg")
 	public String open_register_page() {
