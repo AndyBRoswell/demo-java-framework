@@ -3,17 +3,20 @@ package top.abr.fwsample.ch2_2.service;
 import org.springframework.stereotype.Service;
 import top.abr.fwsample.ch2_2.POJO.user_identity;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.Map.entry;
 
 @Service
 public class user_service_impl implements user_service {
-	private static final Map<String, String> password = Map.ofEntries(
-		entry("admin", "998244353"),
-		entry("0", "0"),
-		entry(" ", " ")
-	);
+	private static final Map<String, String> password = new HashMap<>();
+
+	static {
+		password.put("admin","998244353");
+		password.put("0","0");
+		password.put(" "," ");
+	}
 
 	@Override
 	public user_identity.error login(user_identity user) {
