@@ -12,13 +12,13 @@
 
 本例是一个模拟的影片排片系统。
 
-src/main/webapp/WEB-INF/web.xml 中，声明了名为 main 的 servlet，其 init-param 指定了需要寻找符合 /dispatcher/*.xml 的上下文配置 XML。客户端发出的所有请求，都会由这个名为 main 的 servlet 分发。src/main/webapp/dispatcher/main.xml 定义了该 servlet 的类型为 org.springframework.web.servlet.view.InternalResourceViewResolver，且匹配视图路径名时总是添加前缀 “/page” 和后缀 “.jsp”。本节的示例项目的所有网页都放置于 src/main/webapp/page 中。
+src/main/webapp/WEB-INF/web.xml 中，声明了名为 main 的 servlet，其 init-param 指定了其配置文件为 /dispatcher/main.xml。客户端发出的所有请求，都会由这个名为 main 的 servlet 分发。src/main/webapp/dispatcher/main.xml 定义了该 servlet 的类型为 org.springframework.web.servlet.view.InternalResourceViewResolver，且匹配视图路径名时总是添加前缀 “/page” 和后缀 “.jsp”。本节的示例项目的所有网页都放置于 src/main/webapp/page 中。
 
 src/main/webapp/WEB-INF/web.xml 中，还强制编码为 UTF-8，以免中文显示乱码。
 
 在首页 index.jsp 可以选择添加新的排片或查看已有排片。这只是一个十分简单的演示项目，并没有真正的数据库，而只是使用一个静态变量模拟一个数据库。因此，服务器关闭后，已有的排片数据即丢失。
 
-添加排片和查看排片两个页面对应的视图文件分别为 add-session.jsp 和 sessions.jsp。
+添加排片和查看排片两个页面对应的视图文件分别为 add-session.jsp 和 sessions.jsp。它们的一些内容使用 Expression Language (EL) 取出。在后端，这些需要由前端取出的内容，放在 org.springframework.ui.model 类型的参数里：model 中的键要符合对应的 EL，前端才能正常展示这个键关联的值。
 
 在 add-session.jsp 中，开头的
 ```jsp
@@ -41,5 +41,6 @@ c:forEach 标签的 items 属性指定了需要遍历的对象（该对象被绑
 c:forEach 标签的 var 对象用于取得遍历过程中当前访问到的元素。通过该标识符，可以取得元素（被绑定的 Java 类实例）的成员。如果直接指定成员变量的名称无法取得该变量的值，也可以改为调用该变量的 getter 取得其值。
 
 小结：本例中数据绑定的实现
-- taglib 表单与处理方法中被 @ModelAttribute 注解标记的参数绑定。
+- taglib 表单的预设内容与类型为 org.springframework.ui.model 的参数中的特定的值绑定。
+- taglib 表单的填写内容与处理方法中被 @ModelAttribute 注解标记的参数绑定。
 - org.springframework.ui.Model.addAttribute 添加的对象与 JSTL Core 中的 forEach 标签绑定。
