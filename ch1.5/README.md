@@ -30,5 +30,16 @@ create table user (
 
 创建示例用户和测试用表。
 
-本例的 service_impl 和 service_impl_tx 分别演示不通过和通过 @Transactional 注解调用 DAO_impl 类中的 JdbcTemplate 完成对 MySQL 数据库的访问。演示用的 SQL 语句包括向测试用表 spring_test.user 中添加若干用户信息并查询整张表已有的用户信息。
+本例的 service_impl 和 service_impl_tx 的 test_JDBC 成员方法分别演示不通过和通过 @Transactional 注解调用 DAO_impl 类中的 JdbcTemplate 完成对 MySQL 数据库的访问。演示用的 SQL 语句包括向测试用表 spring_test.user 中添加若干用户信息并查询整张表已有的用户信息，最后删除整张表的全部内容。为了演示确实是以事务的形式进行操作的，在 service_impl_tx.test_JDBC 中，故意添加具有相同主键的两行，这会令插入操作因不满足唯一性约束条件而失败，示例程序会抛出异常。若要在 SQL 语句执行出现异常时回滚事务，则 @Transactional 注解需要添加 rollbackFor 属性：
 
+```java
+@Transactional(rollbackFor = { Exception.class })
+```
+
+或在 catch 语句块内或发生异常的语句之前添加（此种方法在实际工程中应用更多）
+
+```java
+TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+```
+
+如果忘记定义 org.springframework.jdbc.datasource.DataSourceTransactionManager 实例（示例程序将其添加到了 Spring 配置文件 application-context.xml 中），则无法在事务执行出现问题时将事务撤销。

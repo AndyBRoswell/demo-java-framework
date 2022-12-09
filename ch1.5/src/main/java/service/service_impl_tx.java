@@ -13,6 +13,7 @@ import java.util.Random;
 
 @Service
 @Transactional
+//@Transactional(rollbackFor = { Exception.class })
 public class service_impl_tx implements service {
 	@Autowired
 	public DAO test_DAO;
