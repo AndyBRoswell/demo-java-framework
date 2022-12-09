@@ -9,5 +9,7 @@ public class test_JDBC {
 		@SuppressWarnings("resources") final ApplicationContext app_ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		final var test_service = (service)app_ctx.getBean("test_service_impl");
 		test_service.test_JDBC();
+		final var test_service_tx = (service)app_ctx.getBean("test_service_impl_tx");
+		test_service_tx.test_JDBC();
 	}
 }
