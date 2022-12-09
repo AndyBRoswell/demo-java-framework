@@ -14,4 +14,21 @@ Spring 的声明式事务管理通过 AOP（面向方面编程）实现，其本
 
 本例演示如何通过 Spring 的 JDBC 模板访问 MySQL，并演示声明式事务管理的使用。
 
-本例使用最新的 MySQL Community 8.0.31。在 MySQL Workbench 中，
+本例使用最新的 MySQL Community 8.0.31。在 MySQL 中，执行如下语句（可通过 MySQL Workbench 执行）：
+
+```sql
+create user 'java-framework-sample-ch1.5' identified by '0';
+grant all on * to 'java-framework-sample-ch1.5';
+create database spring_test;
+use spring_test;
+create table user (
+	id bigint not null primary key,
+    name varchar(32) default '',
+    sex varchar(10) default ''
+);
+```
+
+创建示例用户和测试用表。
+
+本例的 service_impl 和 service_impl_tx 分别演示不通过和通过 @Transactional 注解调用 DAO_impl 类中的 JdbcTemplate 完成对 MySQL 数据库的访问。演示用的 SQL 语句包括向测试用表 spring_test.user 中添加若干用户信息并查询整张表已有的用户信息。
+
