@@ -12,3 +12,6 @@ Spring 的声明式事务管理通过 AOP（面向方面编程）实现，其本
 
 ## 例
 
+本例演示如何通过 Spring 的 JDBC 模板访问 MySQL，并演示声明式事务管理的使用。
+
+本例使用最新的 MySQL Community 8.0.31。在 MySQL Workbench 中，
