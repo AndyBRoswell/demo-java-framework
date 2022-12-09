@@ -14,6 +14,10 @@
 	<bean id="JDBC_template" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="data-source"/>
 	</bean>
+	<bean id="tx_manager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="data-source"/>
+	</bean>
+	<tx:annotation-driven transaction-manager="tx_manager"/>
 	<bean id="test_service_impl" class="service.service_impl"/>
 	<bean id="test_service_impl_tx" class="service.service_impl_tx"/>
 </beans>

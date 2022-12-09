@@ -5,6 +5,7 @@ import entity.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import java.time.Instant;
 import java.util.List;
@@ -24,7 +25,11 @@ public class service_impl_tx implements service {
 		for (long i = 1; i <= 10; ++i) {
 			test_DAO.update(insert_SQL, new Object[]{ i, "老王" + random.nextLong(), random.nextBoolean() == true ? "男" : "女", });
 		}
-		test_DAO.update(insert_SQL, new Object[]{ 1, "老王", "男" }); // deliberately add another user with existent id, causing unique constraint exception and rollback of tx
+		TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+		try {
+			test_DAO.update(insert_SQL, new Object[]{ 1, "老王", "男" }); // deliberately add another user with existent id, causing unique constraint exception and rollback of tx
+		}
+		catch (final Exception e) {}
 		List<user> user_list = test_DAO.query(select_SQL, null);
 		for (var user : user_list) {System.out.println(user);}
 		test_DAO.update(truncate_SQL, null);
