@@ -8,7 +8,7 @@
 		<property name="url" value="jdbc:mysql://localhost:3306"/>
 	</properties>
 	<settings>
-		<setting name="logImpl" value="LOG4J"/>
+		<setting name="logImpl" value="LOG4J2"/>
 	</settings>
 	<typeAliases>
 		<typeAlias type="persistence.user" alias="user"/>
