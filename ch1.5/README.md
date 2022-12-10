@@ -19,8 +19,6 @@ Spring 的声明式事务管理通过 AOP（面向方面编程）实现，其本
 本例使用最新的 MySQL Community 8.0.31。在 MySQL 中，执行如下语句（可通过 MySQL Workbench 执行）：
 
 ```sql
-create user 'java-framework-sample-ch1.5' identified by '0';
-grant all on * to 'java-framework-sample-ch1.5';
 create database spring_test;
 use spring_test;
 create table user (
@@ -28,6 +26,8 @@ create table user (
     name varchar(32) default '',
     sex varchar(10) default ''
 );
+create user 'java-framework-sample-ch1.5' identified by '0';
+grant all on * to 'java-framework-sample-ch1.5';
 ```
 
 创建示例用户和测试用表。
