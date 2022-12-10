@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper>
+	<select id="select_user_by_id" parameterType="Long" resultType="persistence.user">
+		select *
+		from spring_test.user
+		where id = #{id}
+	</select>
+	<select id="select_all_users" resultType="user">
+		select *
+		from spring_test.user
+	</select>
+	<insert id="add_user" parameterType="user">
+		insert into spring_test.user(id, name, sex)
+		values (#{id}, #{name}, #{sex})
+	</insert>
+	<update id="update_user" parameterType="user">
+		update spring_test.user
+		set name=#{name},
+			sex=#{sex}
+		where id = #{id}
+	</update>
+	<delete id="delete_user" parameterType="Long">
+		delete
+		from spring_test.user
+		where id = #{id}
+	</delete>
+</mapper>
