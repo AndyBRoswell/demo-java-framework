@@ -48,6 +48,9 @@ public class test {
 				SQL_session.update(mybatis_prefix + "update_user", user);
 			}
 			final List<user> actual_users = SQL_session.selectList("mybatis_mapper.user-mapper.select_all_users");
+			final var user_comparator = Comparator.comparingLong(user::getId).thenComparing(user::getName).thenComparing(user::getSex);
+			expected_users.sort(user_comparator);
+			actual_users.sort(user_comparator);
 			assertEquals(expected_users, actual_users);
 			SQL_session.commit();
 			SQL_session.close();
