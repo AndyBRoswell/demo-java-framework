@@ -20,7 +20,7 @@ public class test {
 			final SqlSessionFactory SQL_session_factory = new SqlSessionFactoryBuilder().build(config);
 			final SqlSession SQL_session = SQL_session_factory.openSession();
 			final var mybatis_prefix = "mybatis_mapper.user-mapper.";
-			final List<user> control_group = new ArrayList<>();
+			final List<user> expected_users = new ArrayList<>();
 			final long n = 100L;
 			final var random = new Random(Instant.now().getEpochSecond());
 			for (var i = 0; i < n; ++i) {
@@ -31,14 +31,14 @@ public class test {
 				for (var j = 0; j < l; ++j) {name_string_builder.append((char)random.nextInt(0x20, 0x7E));}
 				user.setName(name_string_builder.toString());
 				user.setSex(random.nextBoolean() == true ? "M" : "F");
-				control_group.add(user);
+				expected_users.add(user);
 				SQL_session.insert(mybatis_prefix + "add_user", user);
 			}
-			for (var expected_user : control_group) {
-				final user returned_user = SQL_session.selectOne(mybatis_prefix + "select_user_by_id", expected_user.getId());
-				assertEquals(expected_user, returned_user);
+			for (var expected_user : expected_users) {
+				final user actual_user = SQL_session.selectOne(mybatis_prefix + "select_user_by_id", expected_user.getId());
+				assertEquals(expected_user, actual_user);
 			}
-			for (var user : control_group) {
+			for (var user : expected_users) {
 				user.setId(random.nextLong());
 				final StringBuilder name_string_builder = new StringBuilder();
 				final int l = random.nextInt(1, 32);
@@ -47,8 +47,8 @@ public class test {
 				user.setSex(random.nextBoolean() == true ? "M" : "F");
 				SQL_session.update(mybatis_prefix + "update_user", user);
 			}
-			final List<user> user_list = SQL_session.selectList("mybatis_mapper.user-mapper.select_all_users");
-			assertEquals(control_group, user_list);
+			final List<user> actual_users = SQL_session.selectList("mybatis_mapper.user-mapper.select_all_users");
+			assertEquals(expected_users, actual_users);
 			SQL_session.commit();
 			SQL_session.close();
 		}
