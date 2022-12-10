@@ -27,7 +27,7 @@ public class test {
 			user_to_be_updated.setSex("女");
 			SQL_session.update("mybatis_mapper.user-mapper.update_user", user_to_be_updated);
 			SQL_session.delete("mybatis_mapper.user-mapper.delete_user", 2L);
-			final List<user> user_list = SQL_session.selectList("mybatis_mapper.user-mapper.select_all_user");
+			final List<user> user_list = SQL_session.selectList("mybatis_mapper.user-mapper.select_all_users");
 			for (final user user : user_list) {
 				System.out.println(user);
 			}
