@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class test {
 	@Test
-	public static void MyBatis_demo() {
+	public void MyBatis_demo() {
 		try {
 			final InputStream config = Resources.getResourceAsStream("mybatis-config.xml");
 			final SqlSessionFactory SQL_session_factory = new SqlSessionFactoryBuilder().build(config);
@@ -27,7 +27,7 @@ public class test {
 				final user user = new user();
 				user.setId(random.nextLong());
 				final StringBuilder name_string_builder = new StringBuilder();
-				final int l = random.nextInt(1, 32);
+				final int l = random.nextInt(1, 8);
 				for (var j = 0; j < l; ++j) {name_string_builder.append(random.nextInt(0x20, 0x7E));}
 				user.setName(name_string_builder.toString());
 				user.setSex(random.nextBoolean() == true ? "M" : "F");
