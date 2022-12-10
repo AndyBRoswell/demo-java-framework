@@ -38,8 +38,8 @@ public class test {
 				final user actual_user = SQL_session.selectOne(mybatis_prefix + "select_user_by_id", expected_user.getId());
 				assertTrue(expected_user.equals(actual_user));
 			}
+			SQL_session.commit();
 			for (var user : expected_users) {
-				user.setId(random.nextLong());
 				final StringBuilder name_string_builder = new StringBuilder();
 				final int l = random.nextInt(1, 32);
 				for (var j = 0; j < l; ++j) {name_string_builder.append((char)random.nextInt(0x20, 0x7E));}
@@ -47,6 +47,7 @@ public class test {
 				user.setSex(random.nextBoolean() == true ? "M" : "F");
 				SQL_session.update(mybatis_prefix + "update_user", user);
 			}
+			SQL_session.commit();
 			final List<user> actual_users = SQL_session.selectList("mybatis_mapper.user-mapper.select_all_users");
 			final var user_comparator = Comparator.comparingLong(user::getId).thenComparing(user::getName).thenComparing(user::getSex);
 			expected_users.sort(user_comparator);
