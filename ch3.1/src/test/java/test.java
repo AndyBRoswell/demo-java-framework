@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.time.Instant;
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class test {
 	@Test
@@ -36,7 +36,7 @@ public class test {
 			}
 			for (var expected_user : expected_users) {
 				final user actual_user = SQL_session.selectOne(mybatis_prefix + "select_user_by_id", expected_user.getId());
-				assertEquals(expected_user, actual_user);
+				assertTrue(expected_user.equals(actual_user));
 			}
 			for (var user : expected_users) {
 				user.setId(random.nextLong());

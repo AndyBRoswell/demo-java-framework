@@ -10,6 +10,9 @@ public class user {
 	public void setName(String name) {this.name = name;}
 	public String getSex() {return sex;}
 	public void setSex(String sex) {this.sex = sex;}
+	public boolean equals(user RHS) {
+		return id.equals(RHS.id) && name.equals(RHS.name) && sex.equals(RHS.sex);
+	}
 	public String toString() {
 		return "user[id = " + id + ", name = " + name + ", sex = " + sex + "]";
 	}
