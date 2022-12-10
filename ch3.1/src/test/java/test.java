@@ -41,14 +41,19 @@ public class test {
 				final user returned_user = SQL_session.selectOne("mybatis_mapper.user-mapper.select_user_by_id", expected_user.getId());
 				assertEquals(returned_user, expected_user);
 			}
-			for (var i = 0; i < n; ++i) {
-				
+			for (var user : control_group) {
+				user.setId(random.nextLong());
+				final StringBuilder name_string_builder = new StringBuilder();
+				final int l = random.nextInt(1, 32);
+				for (var j = 0; j < l; ++j) {name_string_builder.append(random.nextInt(0x20, 0x7E));}
+				user.setName(name_string_builder.toString());
+				user.setSex(random.nextBoolean() == true ? "M" : "F");
+				SQL_session.update("mybatis_mapper.user-mapper.update_user", user);
 			}
-			final user user_to_be_updated = new user();
-			user_to_be_updated.setId(1L);
-			user_to_be_updated.setName("老张");
-			user_to_be_updated.setSex("女");
-			SQL_session.update("mybatis_mapper.user-mapper.update_user", user_to_be_updated);
+			for (var expected_user : control_group) {
+				final user returned_user = SQL_session.selectOne("mybatis_mapper.user-mapper.select_user_by_id", expected_user.getId());
+				assertEquals(returned_user, expected_user);
+			}
 			SQL_session.delete("mybatis_mapper.user-mapper.delete_user", 2L);
 			final List<user> user_list = SQL_session.selectList("mybatis_mapper.user-mapper.select_all_users");
 			for (final user user : user_list) {
