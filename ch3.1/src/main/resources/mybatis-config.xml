@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<!--	数据库连接信息-->
 	<properties>
 		<property name="username" value="java-framework-sample-ch3.1"/>
 		<property name="password" value="0"/>
@@ -17,7 +16,7 @@
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC"></transactionManager>
+			<transactionManager type="JDBC"/>
 			<dataSource type="POOLED">
 				<property name="driver" value="${driver}"/>
 				<property name="url" value="${url}"/>
