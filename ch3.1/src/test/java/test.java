@@ -53,6 +53,7 @@ public class test {
 			expected_users.sort(user_comparator);
 			actual_users.sort(user_comparator);
 			assertEquals(expected_users, actual_users);
+			assertTrue(expected_users.equals(actual_users));
 			SQL_session.commit();
 			SQL_session.close();
 		}
