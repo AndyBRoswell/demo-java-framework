@@ -14,7 +14,7 @@ public class test {
 			final InputStream config = Resources.getResourceAsStream("mybatis-config.xml");
 			final SqlSessionFactory SQL_session_factory = new SqlSessionFactoryBuilder().build(config);
 			final SqlSession SQL_session = SQL_session_factory.openSession();
-			final user user_selected = SQL_session.selectOne("mybatis_mapper.user-mapper.select_user_by_id", 1);
+			final user user_selected = SQL_session.selectOne("mybatis_mapper.user-mapper.select_user_by_id", 1L);
 			System.out.println(user_selected);
 			final user user_to_be_added = new user();
 			user_to_be_added.setId(2L);
@@ -26,7 +26,7 @@ public class test {
 			user_to_be_updated.setName("老张");
 			user_to_be_updated.setSex("女");
 			SQL_session.update("mybatis_mapper.user-mapper.update_user", user_to_be_updated);
-			SQL_session.delete("mybatis_mapper.user-mapper.delete_user", 2);
+			SQL_session.delete("mybatis_mapper.user-mapper.delete_user", 2L);
 			final List<user> user_list = SQL_session.selectList("mybatis_mapper.user-mapper.select_all_user");
 			for (final user user : user_list) {
 				System.out.println(user);
