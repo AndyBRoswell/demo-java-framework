@@ -8,10 +8,7 @@ import persistence.user;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,7 +20,7 @@ public class test {
 			final SqlSessionFactory SQL_session_factory = new SqlSessionFactoryBuilder().build(config);
 			final SqlSession SQL_session = SQL_session_factory.openSession();
 			final var mybatis_prefix = "mybatis_mapper.user-mapper.";
-			final Set<user> control_group = new HashSet<>();
+			final List<user> control_group = new ArrayList<>();
 			final long n = 100L;
 			final var random = new Random(Instant.now().getEpochSecond());
 			for (var i = 0; i < n; ++i) {
@@ -38,7 +35,7 @@ public class test {
 				SQL_session.insert(mybatis_prefix + "add_user", user);
 			}
 			for (var expected_user : control_group) {
-				final user returned_user = SQL_session.selectOne("mybatis_mapper.user-mapper.select_user_by_id", expected_user.getId());
+				final user returned_user = SQL_session.selectOne(mybatis_prefix + "select_user_by_id", expected_user.getId());
 				assertEquals(returned_user, expected_user);
 			}
 			for (var user : control_group) {
@@ -48,17 +45,10 @@ public class test {
 				for (var j = 0; j < l; ++j) {name_string_builder.append(random.nextInt(0x20, 0x7E));}
 				user.setName(name_string_builder.toString());
 				user.setSex(random.nextBoolean() == true ? "M" : "F");
-				SQL_session.update("mybatis_mapper.user-mapper.update_user", user);
+				SQL_session.update(mybatis_prefix + "update_user", user);
 			}
-			for (var expected_user : control_group) {
-				final user returned_user = SQL_session.selectOne("mybatis_mapper.user-mapper.select_user_by_id", expected_user.getId());
-				assertEquals(returned_user, expected_user);
-			}
-			SQL_session.delete("mybatis_mapper.user-mapper.delete_user", 2L);
 			final List<user> user_list = SQL_session.selectList("mybatis_mapper.user-mapper.select_all_users");
-			for (final user user : user_list) {
-				System.out.println(user);
-			}
+			assertEquals(user_list, control_group);
 			SQL_session.commit();
 			SQL_session.close();
 		}
