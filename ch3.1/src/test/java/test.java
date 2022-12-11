@@ -21,7 +21,7 @@ public class test {
 			final SqlSession SQL_session = SQL_session_factory.openSession();
 			final var mybatis_prefix = "mybatis_mapper.user-mapper.";
 			final List<user> expected_users = new ArrayList<>();
-			final int n = 10;
+			final int n = 100;
 			final var random = new Random(Instant.now().getEpochSecond());
 			// insert
 			for (var i = 0; i < n; ++i) {
