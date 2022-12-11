@@ -5,7 +5,7 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<a href="test">test</a>
+<input type="button" id="test">
 <textarea id="response"></textarea>
 </body>
 </html>
