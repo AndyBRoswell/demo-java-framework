@@ -1,5 +1,7 @@
 package controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +18,7 @@ public class index_controller {
 	@Autowired
 	private user_mapper user_mapper;
 	@RequestMapping("/test")
-	public String test() {
+	public String test() throws JsonProcessingException {
 		final int n = 100;
 		final var random = new Random(Instant.now().getEpochSecond());
 		final List<Long> user_id = new ArrayList<>();
@@ -50,6 +52,9 @@ public class index_controller {
 		for (var i = n - 1; i >= n / 2; --i) {
 			user_mapper.delete_user(user_id.get(i));
 		}
-
+		// select (all)
+		final var users = user_mapper.select_all_users();
+		final ObjectMapper object_mapper = new ObjectMapper();
+		return object_mapper.writeValueAsString(users);
 	}
 }
