@@ -48,12 +48,14 @@ public class test {
 				SQL_session.update(mybatis_prefix + "update_user", user);
 			}
 			SQL_session.commit();
-			final List<user> actual_users = SQL_session.selectList("mybatis_mapper.user-mapper.select_all_users");
+			final List<user> actual_users = SQL_session.selectList(mybatis_prefix + "select_all_users");
 			final var user_comparator = Comparator.comparingLong(user::getId).thenComparing(user::getName).thenComparing(user::getSex);
 			expected_users.sort(user_comparator);
 			actual_users.sort(user_comparator);
-			assertEquals(expected_users, actual_users);
-			assertTrue(expected_users.equals(actual_users));
+			assertEquals(expected_users.size(), actual_users.size());
+			for (var i = 0; i < expected_users.size(); ++i) {
+				assertTrue(expected_users.get(i).equals(actual_users.get(i)));
+			}
 			SQL_session.commit();
 			SQL_session.close();
 		}
