@@ -51,11 +51,11 @@ public class test {
 				SQL_session.update(mybatis_prefix + "update_user", user);
 			}
 			// select
-			final List<user> actual_users = SQL_session.selectList(mybatis_prefix + "select_all_users");
+			List<user> actual_users = SQL_session.selectList(mybatis_prefix + "select_all_users");
 			final var user_comparator = Comparator.comparingLong(user::getId).thenComparing(user::getName).thenComparing(user::getSex);
 			expected_users.sort(user_comparator);
 			actual_users.sort(user_comparator);
-			assertEquals(n, actual_users.size());
+			assertEquals(expected_users.size(), actual_users.size());
 			for (var i = 0; i < n; ++i) {
 				assertTrue(expected_users.get(i).equals(actual_users.get(i)));
 			}
@@ -65,6 +65,19 @@ public class test {
 				SQL_session.delete(mybatis_prefix + "delete_user", expected_users.get(i).getId());
 				expected_users.remove(i);
 			}
+			// select
+			actual_users = SQL_session.selectList(mybatis_prefix + "select_all_users");
+			expected_users.sort(user_comparator);
+			actual_users.sort(user_comparator);
+			assertEquals(expected_users.size(), actual_users.size());
+			for (var i = 0; i < actual_users.size(); ++i) {
+				assertTrue(expected_users.get(i).equals(actual_users.get(i)));
+			}
+			// truncate
+			SQL_session.delete(mybatis_prefix + "clear_users");
+			// select
+			actual_users = SQL_session.selectList(mybatis_prefix + "select_all_users");
+			assertEquals(0, actual_users.size());
 			SQL_session.commit();
 			SQL_session.close();
 		}

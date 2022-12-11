@@ -25,7 +25,7 @@
 		from spring_test.user
 		where id = #{id}
 	</delete>
-	<delete id="clear_user">
+	<delete id="clear_users">
 		truncate table spring_test.user;
 	</delete>
 </mapper>
