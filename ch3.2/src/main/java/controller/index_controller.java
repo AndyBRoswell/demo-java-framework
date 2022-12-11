@@ -50,6 +50,6 @@ public class index_controller {
 		for (var i = n - 1; i >= n / 2; --i) {
 			user_mapper.delete_user(user_id.get(i));
 		}
-		return "test";
+
 	}
 }
