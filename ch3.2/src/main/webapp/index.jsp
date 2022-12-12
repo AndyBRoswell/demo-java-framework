@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>JSP - Hello World</title>
+    <script src="index.js" defer></script>
 </head>
 <body>
 <input type="button" id="test" value="test"><br>
