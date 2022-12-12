@@ -21,7 +21,11 @@
 		<property name="dataSource" ref="data-source"/>
 	</bean>
 	<tx:annotation-driven transaction-manager="tx_manager"/>
-	<bean id="SQL-session-factory" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<bean id="SQL-session-factory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="data-source"/>
+		<property name="configLocation" value="mybatis-config.xml"/>
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="persistence"/>
 		<property name="sqlSessionFactoryBeanName" value="SQL_session_factory"/>
 	</bean>
