@@ -2,11 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:mvc="http://www.springframework.org/schema/mvc"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+	<context:component-scan base-package="controller"/>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internal_resource_view_resolver">
 		<property name="prefix" value="/page/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	<mvc:annotation-driven/>
-	<mvc:resources mapping="index.js" location="index.js"/>
+	<mvc:resources mapping="/index.js" location="/index.js"/>
 </beans>
