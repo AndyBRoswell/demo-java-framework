@@ -10,5 +10,5 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	<mvc:annotation-driven/>
-	<mvc:resources mapping="/index.js" location="/index.js"/>
+	<mvc:resources mapping="index.js" location="index.js"/>
 </beans>
