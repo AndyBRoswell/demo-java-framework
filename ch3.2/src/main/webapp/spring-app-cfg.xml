@@ -27,6 +27,6 @@
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="persistence"/>
-		<property name="sqlSessionFactoryBeanName" value="SQL_session_factory"/>
+		<property name="sqlSessionFactoryBeanName" value="SQL-session-factory"/>
 	</bean>
 </beans>
