@@ -7,6 +7,6 @@
 </head>
 <body>
 <input type="button" id="test" value="test"><br>
-<textarea id="response" rows="100" style="width: 100%" readonly></textarea>
+<textarea id="response" style="height: 90vh; width: 100%" readonly></textarea>
 </body>
 </html>

@@ -57,6 +57,6 @@ public class index_controller {
 		// select (all)
 		final var users = user_mapper.select_all_users();
 		final ObjectMapper object_mapper = new ObjectMapper();
-		return object_mapper.writeValueAsString(users);
+		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(users);
 	}
 }
