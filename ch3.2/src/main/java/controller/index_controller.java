@@ -21,7 +21,7 @@ public class index_controller {
 	@RequestMapping("/test")
 	@ResponseBody
 	public String test() throws JsonProcessingException {
-		final int n = 100;
+		final int n = 10;
 		final var random = new Random(Instant.now().getEpochSecond());
 		final List<Long> user_id = new ArrayList<>();
 		// insert
