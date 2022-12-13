@@ -27,7 +27,7 @@ create table user (
     sex varchar(10) default ''
 );
 create user 'java-framework-sample-ch1.5' identified by '0';
-grant all on * to 'java-framework-sample-ch1.5';
+grant all privileges on *.* to 'java-framework-sample-ch1.5';
 ```
 
 创建示例用户和测试用表。
