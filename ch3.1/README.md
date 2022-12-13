@@ -11,3 +11,10 @@ MyBatis 的核心配置文件常常命名为 mybatis-config.xml。该配置文�
 本例仍然使用 1.5 节创建的 spring_test 数据库和其中的一张表 user。同名的 Java 类 user 借由映射文件 src/resources/mybatis_mapper/user-mapper.xml 被 MyBatis 转换为表 spring_test.user 中的记录（即行）。
 
 测试类 test/java/test 演示了如何读入 MyBatis 核心配置并调用核心配置指定的映射文件中编写的 SQL 语句来操纵数据库。
+
+运行测试类中的测试方法前，需要先为本例创建用户：
+
+```sql
+create user 'java-framework-sample-ch3.1' identified by '0';
+grant all privileges on *.* to 'java-framework-sample-ch3.1';
+```
