@@ -186,3 +186,5 @@ Spring MVC（正式名称：Spring Web MVC）是一个主要用于开发 Web 应
 关系模型（relational model）是一种成熟的数据模型，它与实际工作中的大量类型的数据都切合得很好，是众多场景中解决各种问题的有力工具。但关系模型主要源于数学理论。相比之下，面向对象编程（OOP）则主要源于软件工程。因此，在编程语言中操作关系模型中的表，是不太方便的。为了能够使用面向对象编程专有的方法便利地操纵数据，当需要对实体进行具备一定复杂度的处理时，通常将实体以类的形式描述，然后通过对象关系映射（Object Relational Mapping，ORM）框架将其转换为关系数据库中的行。
 
 Java 平台有许多 ORM 框架，包括 Hibernate、MyBatis、Spring Data JPA 等。本章简要学习 MyBatis。MyBatis 原名 iBatis，后改称 MyBatis。作为 Java 持久层框架，MyBatis 力求消除 JDBC 代码中需要重复性地手工编码的部分，包括参数的设置和结果集的检索等步骤。MyBatis 主要使用 XML 或注解指定如何将类（一般是接口和 POJO 类）对应到数据库中的记录。
+
+使用 ORM 框架还有利于大大减少需要更换数据库产品（如：从 MySQL 变更为 SQL Server 或 Oracle Database）时所需的工作量。
