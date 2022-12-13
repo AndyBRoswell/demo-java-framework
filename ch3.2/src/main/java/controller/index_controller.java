@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import persistence.user;
 import persistence.user_mapper;
 
@@ -18,6 +19,7 @@ public class index_controller {
 	@Autowired
 	private user_mapper user_mapper;
 	@RequestMapping("/test")
+	@ResponseBody
 	public String test() throws JsonProcessingException {
 		final int n = 100;
 		final var random = new Random(Instant.now().getEpochSecond());
