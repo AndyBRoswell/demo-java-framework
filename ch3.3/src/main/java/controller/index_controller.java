@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import persistence.user;
@@ -19,11 +20,11 @@ import java.util.Random;
 public class index_controller {
 	@Autowired
 	private user_mapper user_mapper;
-	@RequestMapping("/test")
+	private static final Random random = new Random(Instant.now().getEpochSecond());
+	@GetMapping("/test")
 	@ResponseBody
 	public String test() throws JsonProcessingException {
 		final int n = 20;
-		final var random = new Random(Instant.now().getEpochSecond());
 		final List<Long> user_id = new ArrayList<>();
 		// insert
 		for (var i = 0; i < n; ++i) {
@@ -61,5 +62,10 @@ public class index_controller {
 		user_mapper.clear_users();
 		final ObjectMapper object_mapper = new ObjectMapper();
 		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(users);
+	}
+	@GetMapping("/test_MySQL_select_user_by_map")
+	@ResponseBody
+	public String test_MySQL_select_user_by_map() {
+		
 	}
 }
