@@ -30,7 +30,7 @@
 	</delete>
 	<select id="MySQL_select_user_by_map" parameterType="map" resultType="persistence.user">
 		select *
-		from user
+		from spring_test.user
 		where name like concat('%', #{name}, '%')
 		  and sex = #{sex}
 	</select>
