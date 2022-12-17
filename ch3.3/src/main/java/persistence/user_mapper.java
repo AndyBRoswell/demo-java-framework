@@ -1,7 +1,5 @@
 package persistence;
 
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Map;
 
@@ -12,5 +10,6 @@ public interface user_mapper {
 	int update_user(user user);
 	int delete_user(Long id);
 	int clear_users();
-	List<user> MySQL_select_user_by_map(Map<String, Object> param);
+	List<user> MySQL_select_users_by_map(Map<String, Object> param);
+	List<user> MySQL_select_users_by_bean(user user);
 }

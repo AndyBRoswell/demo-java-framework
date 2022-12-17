@@ -60,9 +60,9 @@ public class index_controller {
 		final ObjectMapper object_mapper = new ObjectMapper();
 		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(users);
 	}
-	@GetMapping("/test_MySQL_select_user_by_map")
+	@GetMapping("/test_MySQL_select_users_by_map")
 	@ResponseBody
-	public String test_MySQL_select_user_by_map() throws JsonProcessingException {
+	public String test_MySQL_select_users_by_map() throws JsonProcessingException {
 		final int n = 3;
 		final user user = new user();
 		user.setName("老陈");
@@ -76,7 +76,32 @@ public class index_controller {
 		final Map<String, Object> param = new HashMap<>();
 		param.put("name", user.getName());
 		param.put("sex", user.getSex());
-		final var result = user_mapper.MySQL_select_user_by_map(param);
+		final var result = user_mapper.MySQL_select_users_by_map(param);
+		// delete
+		for (var i = 0; i < n; ++i) {
+			user_mapper.delete_user((long)i);
+		}
+		// return
+		final ObjectMapper object_mapper = new ObjectMapper();
+		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+	}
+	@GetMapping("/test_MySQL_select_users_by_bean")
+	@ResponseBody
+	public String test_MySQL_select_users_by_bean() throws JsonProcessingException {
+		final int n = 2;
+		// insert
+		for (var i = 0; i < n; ++i) {
+			final user user = new user();
+			user.setId((long)i);
+			user.setName("刘一");
+			user.setSex("男");
+			user_mapper.add_user(user);
+		}
+		// select
+		final user user = new user();
+		user.setName("刘一");
+		user.setSex("男");
+		final var result = user_mapper.MySQL_select_users_by_bean(user);
 		// delete
 		for (var i = 0; i < n; ++i) {
 			user_mapper.delete_user((long)i);

@@ -28,7 +28,13 @@
 	<delete id="clear_users">
 		truncate table spring_test.user;
 	</delete>
-	<select id="MySQL_select_user_by_map" parameterType="map" resultType="persistence.user">
+	<select id="MySQL_select_users_by_map" parameterType="map" resultType="persistence.user">
+		select *
+		from spring_test.user
+		where name like concat('%', #{name}, '%')
+		  and sex = #{sex}
+	</select>
+	<select id="MySQL_select_users_by_bean" parameterType="persistence.user" resultType="persistence.user">
 		select *
 		from spring_test.user
 		where name like concat('%', #{name}, '%')

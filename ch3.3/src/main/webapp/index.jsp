@@ -7,7 +7,8 @@
 </head>
 <body>
 <input type="button" value="test"><br>
-<input type="button" value="test_MySQL_select_user_by_map"><br>
+<input type="button" value="test_MySQL_select_users_by_map"><br>
+<input type="button" value="test_MySQL_select_users_by_bean"><br>
 <textarea id="response" style="height: 90vh; width: 100%" readonly></textarea>
 </body>
 </html>

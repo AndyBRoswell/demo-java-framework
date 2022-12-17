@@ -41,8 +41,12 @@ public class user_mapper_impl extends base_mapper implements user_mapper {
 		return SQL_session.delete(MyBatis_prefix + "clear_users");
 	}
 	@Override
-	public List<user> MySQL_select_user_by_map(Map<String, Object> param) {
+	public List<user> MySQL_select_users_by_map(Map<String, Object> param) {
 		final SqlSession SQL_session = getSqlSession();
-		return SQL_session.selectList(MyBatis_prefix + "MySQL_select_user_by_map", param);
+		return SQL_session.selectList(MyBatis_prefix + "MySQL_select_users_by_map", param);
+	}
+	@Override
+	public List<user> MySQL_select_users_by_bean(user user) {
+		return getSqlSession().selectList(MyBatis_prefix + "MySQL_select_users_by_bean", user);
 	}
 }
