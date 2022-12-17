@@ -1,4 +1,4 @@
-# 3.2 Spring、Spring MVC 和 MyBatis 三大框架的整合开发
+# 3.3 Spring、Spring MVC 和 MyBatis 三大框架的整合开发
 
 ## 例
 
@@ -7,7 +7,7 @@
 运行本例前，需要先为本例创建专门的用户：
 
 ```sql
-create user 'java-framework-sample-ch3.2' identified by '0';
-grant all privileges on *.* to 'java-framework-sample-ch3.2';
+create user 'java-framework-sample-ch3.3' identified by '0';
+grant all privileges on *.* to 'java-framework-sample-ch3.3';
 ```
 
