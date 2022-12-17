@@ -22,7 +22,7 @@ public class index_controller {
 	@RequestMapping("/test")
 	@ResponseBody
 	public String test() throws JsonProcessingException {
-		final int n = 10;
+		final int n = 20;
 		final var random = new Random(Instant.now().getEpochSecond());
 		final List<Long> user_id = new ArrayList<>();
 		// insert
@@ -57,6 +57,8 @@ public class index_controller {
 		}
 		// select (all)
 		final var users = user_mapper.select_all_users();
+		// clear
+		user_mapper.clear_users();
 		final ObjectMapper object_mapper = new ObjectMapper();
 		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(users);
 	}
