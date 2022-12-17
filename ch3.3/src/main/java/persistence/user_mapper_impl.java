@@ -42,4 +42,11 @@ public class user_mapper_impl extends base_mapper implements user_mapper {
 	public List<user> MySQL_select_users_by_bean(user user) {
 		return getSqlSession().selectList(MyBatis_prefix + "MySQL_select_users_by_bean", user);
 	}
+	@Override
+	public List<user> MySQL_select_users_by_param_annotation(String name, String sex) {
+		final user user = new user();
+		user.setName(name);
+		user.setSex(sex);
+		return getSqlSession().selectList(MyBatis_prefix + "MySQL_select_users_by_param_annotation", user);
+	}
 }

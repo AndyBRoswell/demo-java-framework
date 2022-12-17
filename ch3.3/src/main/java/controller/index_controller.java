@@ -78,9 +78,7 @@ public class index_controller {
 		param.put("sex", user.getSex());
 		final var result = user_mapper.MySQL_select_users_by_map(param);
 		// delete
-		for (var i = 0; i < n; ++i) {
-			user_mapper.delete_user((long)i);
-		}
+		for (var i = 0; i < n; ++i) {user_mapper.delete_user((long)i);}
 		// return
 		final ObjectMapper object_mapper = new ObjectMapper();
 		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
@@ -103,9 +101,30 @@ public class index_controller {
 		user.setSex("男");
 		final var result = user_mapper.MySQL_select_users_by_bean(user);
 		// delete
+		for (var i = 0; i < n; ++i) {user_mapper.delete_user((long)i);}
+		// return
+		final ObjectMapper object_mapper = new ObjectMapper();
+		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+	}
+	@GetMapping("/test_MySQL_select_users_by_param_annotation")
+	@ResponseBody
+	public String test_MySQL_select_users_by_param_annotation() throws JsonProcessingException {
+		final int n = 5;
+		// insert
 		for (var i = 0; i < n; ++i) {
-			user_mapper.delete_user((long)i);
+			final user user = new user();
+			user.setId((long)i);
+			user.setName("陈二");
+			user.setSex("男");
+			user_mapper.add_user(user);
 		}
+		// select
+		final user user = new user();
+		user.setName("陈二");
+		user.setSex("男");
+		final var result = user_mapper.MySQL_select_users_by_param_annotation(user.getName(), user.getSex());
+		// delete
+		for (var i = 0; i < n; ++i) {user_mapper.delete_user((long)i);}
 		// return
 		final ObjectMapper object_mapper = new ObjectMapper();
 		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);

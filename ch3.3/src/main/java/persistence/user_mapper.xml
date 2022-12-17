@@ -40,4 +40,10 @@
 		where name like concat('%', #{name}, '%')
 		  and sex = #{sex}
 	</select>
+	<select id="MySQL_select_users_by_param_annotation" parameterType="persistence.user" resultType="persistence.user">
+		select *
+		from spring_test.user
+		where name like concat('%', #{p_name}, '%')
+		  and sex = #{p_sex}
+	</select>
 </mapper>
