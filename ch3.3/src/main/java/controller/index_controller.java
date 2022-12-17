@@ -3,18 +3,14 @@ package controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import persistence.user;
 import persistence.user_mapper;
 
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @Controller
 public class index_controller {
@@ -60,12 +56,33 @@ public class index_controller {
 		final var users = user_mapper.select_all_users();
 		// clear
 		user_mapper.clear_users();
+		// return
 		final ObjectMapper object_mapper = new ObjectMapper();
 		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(users);
 	}
 	@GetMapping("/test_MySQL_select_user_by_map")
 	@ResponseBody
-	public String test_MySQL_select_user_by_map() {
-		
+	public String test_MySQL_select_user_by_map() throws JsonProcessingException {
+		final int n = 3;
+		final user user = new user();
+		user.setName("老陈");
+		user.setSex("男");
+		// insert
+		for (var i = 0; i < n; ++i) {
+			user.setId((long)i);
+			user_mapper.add_user(user);
+		}
+		// select
+		final Map<String, Object> param = new HashMap<>();
+		param.put("name", user.getName());
+		param.put("sex", user.getSex());
+		final var result = user_mapper.MySQL_select_user_by_map(param);
+		// delete
+		for (var i = 0; i < n; ++i) {
+			user_mapper.delete_user((long)i);
+		}
+		// return
+		final ObjectMapper object_mapper = new ObjectMapper();
+		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
 	}
 }
