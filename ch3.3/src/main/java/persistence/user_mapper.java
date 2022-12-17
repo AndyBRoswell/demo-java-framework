@@ -14,5 +14,5 @@ public interface user_mapper {
 	int clear_users();
 	List<user> MySQL_select_users_by_map(Map<String, Object> param);
 	List<user> MySQL_select_users_by_bean(user user);
-	List<user> MySQL_select_users_by_param_annotation(@Param("p_name") String name, @Param("p_sex") String sex);
+	List<user> MySQL_select_users_by_param_annotation(@Param("name") String name, @Param("sex") String sex);
 }
