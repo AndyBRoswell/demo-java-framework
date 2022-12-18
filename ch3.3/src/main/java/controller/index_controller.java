@@ -17,6 +17,10 @@ public class index_controller {
 	@Autowired
 	private user_mapper user_mapper;
 	private static final Random random = new Random(Instant.now().getEpochSecond());
+	private String get_formatted_JSON(final List<user> users) throws JsonProcessingException {
+		final ObjectMapper object_mapper = new ObjectMapper();
+		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(users);
+	}
 	@GetMapping("/test")
 	@ResponseBody
 	public String test() throws JsonProcessingException {
@@ -56,8 +60,7 @@ public class index_controller {
 		// clear
 		user_mapper.clear_users();
 		// return
-		final ObjectMapper object_mapper = new ObjectMapper();
-		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(users);
+		return get_formatted_JSON(users);
 	}
 	@GetMapping("/test_MySQL_select_users_by_map")
 	@ResponseBody
@@ -79,8 +82,7 @@ public class index_controller {
 		// delete
 		for (var i = 0; i < n; ++i) {user_mapper.delete_user((long)i);}
 		// return
-		final ObjectMapper object_mapper = new ObjectMapper();
-		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+		return get_formatted_JSON(result);
 	}
 	@GetMapping("/test_MySQL_select_users_by_bean")
 	@ResponseBody
@@ -102,8 +104,7 @@ public class index_controller {
 		// delete
 		for (var i = 0; i < n; ++i) {user_mapper.delete_user((long)i);}
 		// return
-		final ObjectMapper object_mapper = new ObjectMapper();
-		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+		return get_formatted_JSON(result);
 	}
 	@GetMapping("/test_MySQL_select_users_by_param_annotation")
 	@ResponseBody
@@ -125,8 +126,7 @@ public class index_controller {
 		// delete
 		for (var i = 0; i < n; ++i) {user_mapper.delete_user((long)i);}
 		// return
-		final ObjectMapper object_mapper = new ObjectMapper();
-		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+		return get_formatted_JSON(result);
 	}
 	@GetMapping("/test_add_user_with_auto_increment")
 	@ResponseBody
@@ -144,8 +144,7 @@ public class index_controller {
 		// delete
 		for (var user : result) {user_mapper.delete_user(user.getId());}
 		// return
-		final ObjectMapper object_mapper = new ObjectMapper();
-		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+		return get_formatted_JSON(result);
 	}
 	@GetMapping("/test_add_user_with_custom_primary_key")
 	@ResponseBody
@@ -164,7 +163,6 @@ public class index_controller {
 		// delete
 		for (var user : result) {user_mapper.delete_user(user.getId());}
 		// return
-		final ObjectMapper object_mapper = new ObjectMapper();
-		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+		return get_formatted_JSON(result);
 	}
 }
