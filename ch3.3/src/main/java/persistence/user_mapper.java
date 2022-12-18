@@ -16,4 +16,5 @@ public interface user_mapper {
 	List<user> MySQL_select_users_by_bean(user user);
 	List<user> MySQL_select_users_by_param_annotation(@Param("p_name") String name, @Param("p_sex") String sex);
 	int add_user_with_auto_increment(user user);
+	int add_user_with_custom_primary_key(user user);
 }

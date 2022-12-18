@@ -147,4 +147,24 @@ public class index_controller {
 		final ObjectMapper object_mapper = new ObjectMapper();
 		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
 	}
+	@GetMapping("/test_add_user_with_custom_primary_key")
+	@ResponseBody
+	public String test_add_user_with_custom_primary_key() throws JsonProcessingException {
+		final int n = 10;
+		// insert
+		for (var i = 0; i < n; ++i) {
+			final user user = new user();
+			user.setName("李四" + (char)random.nextInt(0x20, 0x7E));
+			user.setSex("男");
+			user_mapper.add_user_with_custom_primary_key(user);
+		}
+		// select
+		// select
+		final var result = user_mapper.select_all_users();
+		// delete
+		for (var user : result) {user_mapper.delete_user(user.getId());}
+		// return
+		final ObjectMapper object_mapper = new ObjectMapper();
+		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+	}
 }

@@ -53,4 +53,8 @@ public class user_mapper_impl extends base_mapper implements user_mapper {
 	public int add_user_with_auto_increment(user user) {
 		return getSqlSession().insert(MyBatis_prefix + "add_user_with_auto_increment", user);
 	}
+	@Override
+	public int add_user_with_custom_primary_key(user user) {
+		return getSqlSession().insert(MyBatis_prefix + "add_user_with_custom_primary_key", user);
+	}
 }
