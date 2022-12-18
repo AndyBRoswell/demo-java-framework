@@ -18,8 +18,8 @@ import java.util.*;
 public class index_controller {
 	@Autowired
 	private user_mapper user_mapper;
-	@Autowired
-	private person_mapper person_mapper;
+//	@Autowired
+//	private person_mapper person_mapper;
 	private String get_formatted_JSON(final Object value) throws JsonProcessingException {
 		final ObjectMapper object_mapper = new ObjectMapper();
 		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(value);
@@ -155,16 +155,16 @@ public class index_controller {
 		// return
 		return get_formatted_JSON(result);
 	}
-	@GetMapping("/test_1_to_1_1")
-	@ResponseBody
-	public String test_1_to_1_1() throws JsonProcessingException {
-		final person p = person_mapper.select_person_by_id_1((long)1);
-		return get_formatted_JSON(p);
-	}
-	@GetMapping("/test_1_to_1_2")
-	@ResponseBody
-	public String test_1_to_1_2() throws JsonProcessingException {
-		final person p = person_mapper.select_person_by_id_2((long)1);
-		return get_formatted_JSON(p);
-	}
+//	@GetMapping("/test_1_to_1_1")
+//	@ResponseBody
+//	public String test_1_to_1_1() throws JsonProcessingException {
+//		final person p = person_mapper.select_person_by_id_1((long)1);
+//		return get_formatted_JSON(p);
+//	}
+//	@GetMapping("/test_1_to_1_2")
+//	@ResponseBody
+//	public String test_1_to_1_2() throws JsonProcessingException {
+//		final person p = person_mapper.select_person_by_id_2((long)1);
+//		return get_formatted_JSON(p);
+//	}
 }
