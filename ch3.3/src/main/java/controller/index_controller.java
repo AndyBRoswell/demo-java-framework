@@ -55,7 +55,7 @@ public class index_controller {
 		for (var i = n - 1; i >= n / 2; --i) {
 			user_mapper.delete_user(user_id.get(i));
 		}
-		// select (all)
+		// select
 		final var users = user_mapper.select_all_users();
 		// clear
 		user_mapper.clear_users();
@@ -89,17 +89,14 @@ public class index_controller {
 	public String test_MySQL_select_users_by_bean() throws JsonProcessingException {
 		final int n = 2;
 		// insert
-		for (var i = 0; i < n; ++i) {
-			final user user = new user();
-			user.setId((long)i);
-			user.setName("刘一");
-			user.setSex("男");
-			user_mapper.add_user(user);
-		}
-		// select
 		final user user = new user();
 		user.setName("刘一");
 		user.setSex("男");
+		for (var i = 0; i < n; ++i) {
+			user.setId((long)i);
+			user_mapper.add_user(user);
+		}
+		// select
 		final var result = user_mapper.MySQL_select_users_by_bean(user);
 		// delete
 		for (var i = 0; i < n; ++i) {user_mapper.delete_user((long)i);}
@@ -111,17 +108,14 @@ public class index_controller {
 	public String test_MySQL_select_users_by_param_annotation() throws JsonProcessingException {
 		final int n = 5;
 		// insert
-		for (var i = 0; i < n; ++i) {
-			final user user = new user();
-			user.setId((long)i);
-			user.setName("陈二");
-			user.setSex("男");
-			user_mapper.add_user(user);
-		}
-		// select
 		final user user = new user();
 		user.setName("陈二");
 		user.setSex("男");
+		for (var i = 0; i < n; ++i) {
+			user.setId((long)i);
+			user_mapper.add_user(user);
+		}
+		// select
 		final var result = user_mapper.MySQL_select_users_by_param_annotation(user.getName(), user.getSex());
 		// delete
 		for (var i = 0; i < n; ++i) {user_mapper.delete_user((long)i);}
@@ -157,7 +151,6 @@ public class index_controller {
 			user.setSex("男");
 			user_mapper.add_user_with_custom_primary_key(user);
 		}
-		// select
 		// select
 		final var result = user_mapper.select_all_users();
 		// delete
