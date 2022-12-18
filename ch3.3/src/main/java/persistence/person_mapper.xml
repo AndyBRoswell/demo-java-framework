@@ -31,4 +31,8 @@
 		where p.id_card_id = ic.id
 		  and p.id = #{id}
 	</select>
+	<select id="select_all_persons" resultMap="card_and_person_1">
+		select *
+		from spring_test.person
+	</select>
 </mapper>
