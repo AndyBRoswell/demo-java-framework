@@ -31,6 +31,4 @@
 		where p.id_card_id = ic.id
 		  and p.id = #{id}
 	</select>
-<!--	一对一 根据id查询个人信息：连接查询（使用POJO存储结果）-->
-	
 </mapper>

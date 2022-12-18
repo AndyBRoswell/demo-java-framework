@@ -158,4 +158,9 @@ public class index_controller {
 		// return
 		return get_formatted_JSON(result);
 	}
+	@GetMapping("/test_1_to_1")
+	@ResponseBody
+	public String test_1_to_1() throws JsonProcessingException {
+
+	}
 }
