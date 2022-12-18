@@ -52,8 +52,8 @@
 	</insert>
 	<insert id="add_user_with_custom_primary_key" parameterType="persistence.user">
 		<selectKey keyProperty="id" resultType="Integer" order="BEFORE">
-			select decode(max(id),null,1,max(id)+1) as new_id from spring_test.user
+			select decode(max(id), null, 1, max(id) + 1) as new_id from spring_test.user
 		</selectKey>
-		insert into spring_test.user(id,name,sex) values(#id,#{name},#{sex})
+		insert into spring_test.user(id, name, sex) values(#id, #{name}, #{sex})
 	</insert>
 </mapper>

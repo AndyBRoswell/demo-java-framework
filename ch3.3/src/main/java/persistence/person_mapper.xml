@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="persistence.person_mapper">
+	<!--	一对一 根据id查询个人信息：级联查询的第一种方法（嵌套查询，执行两个SQL语句）-->
+	<resultMap id="card_and_person_1" type="persistence.person">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="age" column="age"/>
+		<!--		一对一关联查询-->
+		<association property="id_card" column="id_card_id" javaType="persistence.id_card" select="persistence.id_card_mapper.select_code_by_id"/>
+	</resultMap>
+	<select id="select_person_by_id_1" parameterType="Long" resultMap="card_and_person_1">
+		select *
+		from spring_test.person
+		where id = #{id}
+	</select>
+	<!--	一对一 根据id查询个人信息：级联查询的第二种方法（嵌套结果，执行一个SQL语句）-->
+	<resultMap id="card_and_person_2" type="persistence.person">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="age" column="age"/>
+		<association property="id_card" javaType="persistence.id_card">
+			<id property="id" column="id_card_id"/>
+			<result property="code" column="code"/>
+		</association>
+	</resultMap>
+	<select id="select_person_by_id_2" parameterType="Long" resultMap="card_and_person_2">
+		select p.*, ic.code
+		from spring_test.person p,
+			 spring_test.idcard ic
+		where p.id_card_id = ic.id
+		  and p.id = #{id}
+	</select>
+<!--	一对一 根据id查询个人信息：连接查询（使用POJO存储结果）-->
+	
+</mapper>
