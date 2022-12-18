@@ -6,4 +6,26 @@
 		from spring_test.id_card
 		where id = #{id}
 	</select>
+	<select id="select_all_id_cards" resultType="id_card">
+		select *
+		from spring_test.id_card;
+	</select>
+	<insert id="add_id_card" parameterType="id_card">
+		insert into spring_test.id_card
+		values (#{id}, #{code})
+	</insert>
+	<insert id="add_id_card_with_auto_increment" parameterType="id_card" keyProperty="id" useGeneratedKeys="true">
+		insert into spring_test.id_card(code)
+		values (#{code})
+	</insert>
+	<update id="update_id_card" parameterType="id_card">
+		update spring_test.id_card
+		set code = #{code}
+		where id = #{id}
+	</update>
+	<delete id="delete_id_card" parameterType="Long">
+		delete
+		from spring_test.id_card
+		where id = #{id}
+	</delete>
 </mapper>
