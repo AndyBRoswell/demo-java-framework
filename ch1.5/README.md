@@ -20,11 +20,11 @@ Spring 的声明式事务管理通过 AOP（面向方面编程）实现，其本
 
 ```sql
 create database spring_test;
-use spring_test;
-create table user (
-	id bigint not null primary key,
+create table spring_test.user (
+	id bigint not null auto_increment,
     name varchar(32) default '',
-    sex varchar(10) default ''
+    sex varchar(10) default '',
+    primary key(id)
 );
 create user 'java-framework-sample-ch1.5' identified by '0';
 grant all privileges on *.* to 'java-framework-sample-ch1.5';
