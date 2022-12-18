@@ -19,7 +19,7 @@ public class person_mapper_impl extends base_mapper implements person_mapper {
 	}
 	@Override
 	public int add_person(person person) {
-		return getSqlSession().insert(MyBatis_prefix + "");
+		return 0;
 	}
 	@Override
 	public int add_person_with_auto_increment(person person) {
