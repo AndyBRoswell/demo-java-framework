@@ -10,6 +10,7 @@
 <input type="button" value="test_MySQL_select_users_by_map">
 <input type="button" value="test_MySQL_select_users_by_bean">
 <input type="button" value="test_MySQL_select_users_by_param_annotation">
+<input type="button" value="test_add_user_with_auto_increment">
 <br>
 <textarea id="response" style="height: 90vh; width: 100%" readonly></textarea>
 </body>

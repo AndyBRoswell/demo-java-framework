@@ -39,8 +39,7 @@ public class index_controller {
 		for (var i = 0; i < n / 2; ++i) {
 			final int index = random.nextInt(0, user_id.size());
 			final user user = user_mapper.select_user_by_id(user_id.get(index));
-			final Long id = random.nextLong();
-			user.setId(id);
+			user.setId(random.nextLong());
 			final StringBuilder name_string_builder = new StringBuilder();
 			final int l = random.nextInt(1, 16);
 			for (var j = 0; j < l; ++j) {name_string_builder.append((char)random.nextInt(0x20, 0x7E));}
@@ -125,6 +124,25 @@ public class index_controller {
 		final var result = user_mapper.MySQL_select_users_by_param_annotation(user.getName(), user.getSex());
 		// delete
 		for (var i = 0; i < n; ++i) {user_mapper.delete_user((long)i);}
+		// return
+		final ObjectMapper object_mapper = new ObjectMapper();
+		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
+	}
+	@GetMapping("/test_add_user_with_auto_increment")
+	@ResponseBody
+	public String test_add_user_with_auto_increment() throws JsonProcessingException {
+		final int n = 10;
+		// insert
+		for (var i = 0; i < n; ++i) {
+			final user user = new user();
+			user.setName("张三" + (char)random.nextInt(0x20, 0x7E));
+			user.setSex("男");
+			user_mapper.add_user_with_auto_increment(user);
+		}
+		// select
+		final var result = user_mapper.select_all_users();
+		// delete
+		for (var user : result) {user_mapper.delete_user(user.getId());}
 		// return
 		final ObjectMapper object_mapper = new ObjectMapper();
 		return object_mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);

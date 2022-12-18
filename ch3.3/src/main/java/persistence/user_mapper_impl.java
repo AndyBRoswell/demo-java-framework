@@ -49,4 +49,8 @@ public class user_mapper_impl extends base_mapper implements user_mapper {
 		user.setSex(sex);
 		return getSqlSession().selectList(MyBatis_prefix + "MySQL_select_users_by_param_annotation", user);
 	}
+	@Override
+	public int add_user_with_auto_increment(user user) {
+		return getSqlSession().insert(MyBatis_prefix + "add_user_with_auto_increment", user);
+	}
 }

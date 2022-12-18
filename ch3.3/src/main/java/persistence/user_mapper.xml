@@ -43,7 +43,11 @@
 	<select id="MySQL_select_users_by_param_annotation" parameterType="persistence.user" resultType="persistence.user">
 		select *
 		from spring_test.user
-		where name like concat('%', #{name}, '%')
-		  and sex = #{sex}
+		where name like concat('%', #{p_name}, '%')
+		  and sex = #{p_sex}
 	</select>
+	<insert id="add_user_with_auto_increment" parameterType="persistence.user" keyProperty="id" useGeneratedKeys="true">
+		insert into spring_test.user(name, sex)
+		values (#{name}, #{sex})
+	</insert>
 </mapper>
