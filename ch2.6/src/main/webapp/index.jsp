@@ -21,12 +21,16 @@
     <ol id="file-list">
         <li>
             <input type="file" name="file"><br>
-            <input type="text" name="description">
+            <label>
+                <input type="text" name="description">
+            </label>
             <input type="button" value="➖">
         </li>
         <li>
             <input type="file" name="file"><br>
-            <input type="text" name="description">
+            <label>
+                <input type="text" name="description">
+            </label>
             <input type="button" value="➖">
         </li>
     </ol>

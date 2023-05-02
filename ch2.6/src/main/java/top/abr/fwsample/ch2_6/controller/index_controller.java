@@ -14,11 +14,11 @@ import java.util.List;
 public class index_controller {
 	@PostMapping("/upload")
 	public String upload_files(@ModelAttribute file_list list, HttpServletRequest request) {
-		final String real_path = request.getServletContext().getRealPath("portal");
+		final String real_path = request.getServletContext().getRealPath("portal/upload");
 		final File target_dir = new File(real_path);
 		if (target_dir.exists() == false) {target_dir.mkdirs();}
-		final List<MultipartFile> files = list.file;
-//		final List<MultipartFile> files = list.getFile();
+//		final List<MultipartFile> files = list.file;
+		final List<MultipartFile> files = list.getFile();
 		for (MultipartFile file : files) {
 			final String file_name = file.getOriginalFilename();
 			if (file_name == null) continue;
