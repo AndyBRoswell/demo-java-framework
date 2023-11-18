@@ -174,7 +174,7 @@ Spring MVC（正式名称：Spring Web MVC）是一个主要用于开发 Web 应
 - Service
 - Repository
 
-在 Spring MVC 中，浏览器或其它可以访问网络的软件作为客户端。与客户端直接进行通信的是 DispatcherServlet：它既负责接收客户端发起的请求，也负责将响应发回给客户端。DispatcherServlet 根据 HandlerMapping 将请求提交给适当的 Controller。Controller 可能直接调用 Repository 进行处理，也可以调用 Service 而由 Service 调用 Repository 进行处理。业务逻辑通常集中在 Controller 与 Service 部分；而 Repository 则直接与数据打交道，如：访问数据库、读写磁盘，乃至与其它网络进行通信，等等。由 Service 与 Repository 将请求处理完毕以后产生的响应（Model 或视图名，同时返回两者时返回一个 ModelAndView 实例）将返回给 Controller。Controller 将响应传回给 DispatcherServlet。DispatcherServlet 再按需调用 ViewResolver 和相应的 View，最终将响应回传给客户端。
+在 Spring MVC 中，浏览器或其它可以访问网络的软件作为客户端。与客户端直接进行通信的是 DispatcherServlet：它既负责接收客户端发起的请求，也负责将响应发回给客户端。DispatcherServlet 根据 HandlerMapping 将请求提交给适当的 Controller。Controller 可能直接调用 Repository 进行处理，也可以调用 Service 而由 Service 调用 Repository 进行处理。业务逻辑通常集中在 Controller 与 Service 部分；而 Repository 则直接与数据打交道，如：访问数据库、读写磁盘，乃至与其它网络进行通信，等等。由 Service 与 Repository 将请求处理完毕以后产生的响应返回给 Controller。Controller 将响应传回给 DispatcherServlet。DispatcherServlet 再按需调用 ViewResolver 和相应的 View，最终将响应回传给客户端。
 
 本项目使用 Spring Framework 5.3 以及 Tomcat 9。运行本章的示例前，请先将 Tomcat 9 安装完毕，然后打开安装目录下的 bin/Tomcat9w.exe 将已启动的 Tomcat 9 服务停止运行，并将其设为手动启动。否则，在 IntelliJ IDEA 中编译示例代码并启动时，将会提示端口 8080 被占用。当然，具有一定计算机网络知识和网络编程经验的读者，亦可手动在 IntelliJ IDEA 或 Tomcat9w.exe 中，更改两者之一的端口。
 
