@@ -168,10 +168,11 @@ ${project.build.sourceEncoding}
 
 Spring MVC（正式名称：Spring Web MVC）是一个主要用于开发 Web 应用的知名框架。其实现了 MVC（Model-View-Controller）这一经典的软件架构（也称架构模式，architecture pattern），有利于降低软件的各个模块间的耦合程度，进而提高软件的可扩展性与可维护性。许多软件架构，如 MVP（Android）、MVVM（WPF、MAUI）、MVT（Django）等，其设计思想在本质上都与 MVC 相似。
 
-使用 Spring MVC 开发的服务器端软件，由上层到底层的主要结构大致是：
+使用 Spring MVC 开发的服务器端软件，由上层到底层的主要结构大致是（层次划分方法不唯一）：
 - DispatcherServlet
 - HandlerMapping / Controller / ViewResolver / View
-- Service / Repository
+- Service
+- Repository
 
 在 Spring MVC 中，浏览器或其它可以访问网络的软件作为客户端。与客户端直接进行通信的是 DispatcherServlet：它既负责接收客户端发起的请求，也负责将响应发回给客户端。DispatcherServlet 根据 HandlerMapping 将请求提交给适当的 Controller。Controller 可能直接调用 Repository 进行处理，也可以调用 Service 而由 Service 调用 Repository 进行处理。业务逻辑通常集中在 Controller 与 Service 部分；而 Repository 则直接与数据打交道，如：访问数据库、读写磁盘，乃至与其它网络进行通信，等等。由 Service 与 Repository 将请求处理完毕以后产生的响应（Model 或视图名，同时返回两者时返回一个 ModelAndView 实例）将返回给 Controller。Controller 将响应传回给 DispatcherServlet。DispatcherServlet 再按需调用 ViewResolver 和相应的 View，最终将响应回传给客户端。
 
