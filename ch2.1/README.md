@@ -27,7 +27,7 @@ web.xml 通过 servlet-mapping 定义了如何将 URL 映射到对应的 servlet
 
 可以使用 ? 和 * 通配符匹配符合特定模式的 URL，也可以使用 {} 将匹配到的 URL 中的一个片段使用变量来表示。{} 中还可以使用正则表达式（regex）。
 
-被 @RequestMapping 等注解标记的被 @Controller 标记的类的成员方法，其参数和返回值有多种形式，来实现不同的功能：返回值通常为 Model 或视图（视图名称或视图本身）；若需同时返回两者，则返回一个 ModelAndView 实例。
+被 @RequestMapping 等注解标记的被 @Controller 标记的类的成员方法，其参数和返回值有多种形式，来实现不同的功能：返回值通常为 Model（为视图提供所需数据）或视图（视图名称或视图本身）；若需同时返回两者，则返回一个 ModelAndView 实例。
 
 ## 例
 
