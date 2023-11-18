@@ -35,7 +35,7 @@ web.xml 通过 servlet-mapping 定义了如何将 URL 映射到对应的 servlet
 
 如果是直接拉取本仓库的源码并尝试直接运行，而非依据每个章节的 README 一步一步动手搭建，则点击 IntelliJ IDEA 界面右上角的运行（绿色的▶️）按钮的左侧的 “Run/Debug Configurations” 下拉框，点击 “Edit Configurations...” 项，在弹出的 Run/Debug Configurations 窗口中，新建一个 Tomcat Server 配置（选 Local 而非 Remote），将 Application Server 填入 Tomcat 的安装目录。
 
-通过 IntelliJ IDEA 运行本例的源码之前，通过 Run/Debug Configurations 窗口，在 Tomcat 配置的 Server 选项卡中，将 URL 改为 http://localhost:8080 。则每次调试与运行开始时，都自动访问 localhost:8080 ；在 Deployment 选项卡中，将 Application Context 留空，以便访问 localhost:8080 时能够正确打开首页并顺利导向其它链接。
+通过 IntelliJ IDEA 运行本例的源码之前，通过 Run/Debug Configurations 窗口，在 Tomcat 配置的 Server 选项卡中，将 URL 改为 http://localhost:8080 。则每次调试与运行开始时，都自动访问 localhost:8080；在 Deployment 选项卡中，将 Application Context 留空，以便访问 localhost:8080 时能够正确打开首页并顺利导向其它链接。
 
 在本例中，首页包含两个链接，分别导向注册和登录界面。在 web.xml 中声明了一个 DispatcherServlet 实例，其名称为 request-dispatcher，所有 URL 都会由该 DispatcherServlet 处理。对应的 request-dispatcher-servlet.xml 中，声明了一个 InternalResourceViewResolver 实例作为 bean。该实例的两个 property 子节点分别指定了：总是匹配路径名包含 /WEB-INF/jsp/ 前缀且后缀为 .jsp 的网页。
 
