@@ -4,7 +4,7 @@
 
 JSON 是一种轻量级的数据交换格式，用于实体之间的数据传输。JSON 简单的句法利于高性能又不失灵活性，且人类易读，现已成为首选的数据交换格式之一。
 
-Spring 依赖 Jackson 实现 JSON 与 Java 类实例的互相转换。被 @RequestBody 标记的参数将按照 JSON 格式进行解析，并将其转换为 Java 类的实例；被 @ResponseBody 标记的方法，其返回值将被转换为 JSON 格式并作为响应内容传回给客户端。
+Spring 依赖高性能 JSON 库 Jackson 实现 JSON 与 Java 类实例的互相转换。被 @RequestBody 标记的参数将按照 JSON 格式进行解析，并将其转换为 Java 类的实例；被 @ResponseBody 标记的方法，其返回值将被转换为 JSON 格式并作为响应内容传回给客户端。
 
 ## 例
 
